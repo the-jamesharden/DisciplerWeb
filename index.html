@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discipler</title>
+<link rel="preload" href="bg-hero.jpg" as="image">
+<link rel="preload" href="logo.png" as="image">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --forest:#1a3a2a;
+  --forest-mid:#2d5a3d;
+  --forest-light:#3d7a52;
+  --moss:#4a6741;
+  --sage:#7a9e7e;
+  --mist:rgba(255,255,255,0.08);
+  --mist-strong:rgba(255,255,255,0.13);
+  --mist-border:rgba(255,255,255,0.18);
+  --white:rgba(255,255,255,0.95);
+  --white-muted:rgba(255,255,255,0.65);
+  --white-faint:rgba(255,255,255,0.4);
+  --accent:#a8d5a2;
+  --accent-warm:#c8e6c4;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Inter',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--forest);color:var(--white);overflow-x:hidden;min-height:100vh}
+
+
+
+/* GLASS MIXIN */
+.glass{
+  background:var(--mist);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border:0.5px solid var(--mist-border);
+}
+
+.glass-strong{
+  background:var(--mist-strong);
+  backdrop-filter:blur(40px) saturate(1.4);
+  -webkit-backdrop-filter:blur(40px) saturate(1.4);
+  border:0.5px solid var(--mist-border);
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4rem;height:72px;
+  background:rgba(20,45,30,0.6);
+  backdrop-filter:blur(20px);
+  border-bottom:0.5px solid var(--mist-border);
+}
+.nav-logo{text-decoration:none;display:flex;align-items:center}
+.nav-logo img{height:62px;width:auto;display:block;filter:brightness(0) invert(1)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);background:var(--accent-warm);padding:0.65rem 1.5rem;border:none;cursor:pointer;text-decoration:none;transition:all 0.25s;border-radius:2px}
+.nav-cta:hover{background:var(--white);transform:translateY(-1px)}
+
+/* HERO */
+.hero{
+  position:relative;z-index:1;
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;padding:8rem 4rem 4rem;gap:4rem;overflow:hidden;
+  background:url("bg-hero.jpg") center/cover no-repeat;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(15,40,25,0.55);
+  pointer-events:none;z-index:0;
+}
+.hero>*{position:relative;z-index:1;}
+
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(3rem,5.5vw,5rem);
+  font-weight:700;line-height:1.05;
+  color:var(--white);margin-bottom:2rem;
+}
+.hero-title em{font-style:italic;color:var(--accent)}
+.hero-body{font-size:1rem;line-height:1.8;color:var(--white-muted);max-width:480px;margin-bottom:3rem;font-weight:300}
+.hero-actions{display:flex;align-items:center;gap:2rem}
+
+.btn-primary{
+  font-size:0.78rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;
+  color:var(--forest);background:var(--accent-warm);
+  padding:1rem 2.25rem;border:none;cursor:pointer;text-decoration:none;
+  transition:all 0.25s;display:inline-block;border-radius:2px;
+}
+.btn-primary:hover{background:var(--white);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+
+.btn-ghost{
+  font-size:0.78rem;letter-spacing:0.06em;color:var(--white-muted);
+  text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s;
+  border:0.5px solid var(--mist-border);padding:1rem 1.5rem;border-radius:2px;
+}
+.btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.3)}
+.btn-ghost::after{content:'→';transition:transform 0.2s}
+.btn-ghost:hover::after{transform:translateX(4px)}
+
+/* HERO CARD */
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+
+.dashboard-card{
+  padding:2rem;width:100%;max-width:420px;
+  border-radius:16px;
+  
+}
+
+
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:0.5px solid var(--mist-border)}
+.dash-title{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--white)}
+.dash-badge{font-size:0.65rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);background:rgba(168,213,162,0.15);padding:0.25rem 0.6rem;border-radius:20px;border:0.5px solid rgba(168,213,162,0.3)}
+
+.match-pair{display:flex;align-items:center;gap:1rem;padding:0.85rem 0;border-bottom:0.5px solid var(--mist-border)}
+.match-pair:last-of-type{border-bottom:none}
+.avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:500;letter-spacing:0.04em;flex-shrink:0}
+.av-a{background:rgba(168,213,162,0.2);color:var(--accent)}
+.av-b{background:rgba(255,255,255,0.12);color:var(--white-muted)}
+.av-c{background:rgba(200,230,196,0.15);color:var(--accent-warm)}
+.match-info{flex:1}
+.match-names{font-size:0.82rem;font-weight:400;color:var(--white);margin-bottom:2px}
+.match-meta{font-size:0.7rem;color:var(--white-faint)}
+.match-status{font-size:0.62rem;font-weight:500;text-transform:uppercase;letter-spacing:0.07em;padding:0.2rem 0.6rem;border-radius:20px}
+.status-active{background:rgba(168,213,162,0.18);color:var(--accent);border:0.5px solid rgba(168,213,162,0.3)}
+.status-new{background:rgba(200,230,196,0.15);color:var(--accent-warm);border:0.5px solid rgba(200,230,196,0.25)}
+.status-pending{background:rgba(255,255,255,0.08);color:var(--white-faint);border:0.5px solid rgba(255,255,255,0.15)}
+
+.dash-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:1.5rem;padding-top:1.25rem;border-top:0.5px solid var(--mist-border)}
+.stat-box{text-align:center;padding:0.75rem 0.5rem;background:rgba(255,255,255,0.05);border-radius:8px}
+.stat-num{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--accent);display:block}
+.stat-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--white-faint);margin-top:2px;display:block}
+
+/* STATS BAR */
+.stats-bar{
+  position:relative;z-index:1;
+  padding:3rem 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;
+  background:rgba(15,35,22,0.7);backdrop-filter:blur(20px);
+  border-top:0.5px solid var(--mist-border);border-bottom:0.5px solid var(--mist-border);
+}
+.stat-item{text-align:center}
+.stat-item .num{font-family:var(--font-display);font-size:3rem;font-weight:700;color:var(--accent);display:block;line-height:1;margin-bottom:0.5rem}
+.stat-item .label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-muted)}
+
+/* SHARED */
+.section-label{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.15;color:var(--white);max-width:720px;margin-bottom:1.5rem}
+.section-title em{font-style:italic;color:var(--accent)}
+
+/* PROBLEM */
+.section-problem{position:relative;z-index:1;padding:8rem 4rem;max-width:1200px;margin:0 auto}
+.section-intro{font-size:1rem;line-height:1.8;color:var(--white-muted);max-width:600px;margin-bottom:4rem;font-weight:300}
+
+.challenge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.challenge-card{
+  padding:2.5rem 2rem;border-radius:12px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(20px);
+  border:0.5px solid var(--mist-border);
+  transition:background 0.25s,border-color 0.25s;
+}
+.challenge-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(168,213,162,0.3)}
+.challenge-title{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:1rem}
+.challenge-body{font-size:0.88rem;line-height:1.75;color:var(--white-muted);font-weight:300}
+
+/* FEATURES */
+.section-features{position:relative;z-index:1;padding:8rem 4rem}
+.features-inner{max-width:1200px;margin:0 auto}
+.features-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:5rem;align-items:end}
+.features-label{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.features-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3rem);font-weight:700;line-height:1.15;color:var(--white)}
+.features-title em{font-style:italic;color:var(--accent)}
+.features-desc{font-size:0.95rem;line-height:1.8;color:var(--white-muted);align-self:end;font-weight:300}
+
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.feature-card{
+  padding:2rem;border-radius:12px;cursor:default;position:relative;overflow:hidden;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border:0.5px solid var(--mist-border);
+  transition:background 0.25s,border-color 0.25s;
+}
+.feature-card:hover{background:rgba(255,255,255,0.09);border-color:rgba(168,213,162,0.35)}
+.light-blob{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(168,213,162,0.15) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);top:-999px;left:-999px}
+.feature-num{font-family:var(--font-display);font-size:0.85rem;color:rgba(168,213,162,0.35);margin-bottom:1.25rem}
+.feature-name{font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:0.75rem}
+.feature-body{font-size:0.85rem;line-height:1.75;color:var(--white-muted);font-weight:300}
+
+/* TESTIMONIAL */
+.section-testimonial{position:relative;z-index:1;padding:8rem 4rem;max-width:900px;margin:0 auto;text-align:center}
+.testimonial-rule{width:48px;height:1px;background:var(--accent);margin:0 auto 2.5rem;opacity:0.6}
+.testimonial-quote{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:400;font-style:italic;line-height:1.5;color:var(--white);margin-bottom:2rem}
+.testimonial-attr{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-faint)}
+.testimonial-attr strong{color:var(--white-muted);font-weight:500}
+
+/* HOW IT WORKS */
+.section-how{position:relative;z-index:1;padding:8rem 4rem}
+.how-inner{max-width:1200px;margin:0 auto}
+.how-header{margin-bottom:5rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.steps::before{content:'';position:absolute;top:28px;left:14%;right:14%;height:0.5px;background:var(--mist-border)}
+.step{text-align:center;padding:0 1rem}
+.step-circle{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(168,213,162,0.1);
+  border:0.5px solid rgba(168,213,162,0.4);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.5rem;
+  font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--accent);
+  position:relative;z-index:1;
+  backdrop-filter:blur(10px);
+}
+.step-name{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:0.6rem}
+.step-body{font-size:0.82rem;line-height:1.7;color:var(--white-muted);font-weight:300}
+
+/* OUR HEART */
+.section-heart{position:relative;z-index:1;padding:8rem 4rem}
+.heart-inner{max-width:1200px;margin:0 auto}
+.heart-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;padding-bottom:3rem;border-bottom:0.5px solid var(--mist-border)}
+.heart-intro{font-size:1rem;line-height:1.85;color:var(--white-muted);font-weight:300}
+.heart-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.heart-stat{
+  padding:2.5rem 2rem;border-radius:12px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border:0.5px solid var(--mist-border);
+}
+.heart-stat-num{font-family:var(--font-display);font-size:3.5rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:1rem;display:block}
+.heart-stat-text{font-size:0.9rem;line-height:1.7;color:var(--white-muted);margin-bottom:1rem;font-weight:300}
+.heart-stat-source{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(168,213,162,0.5);display:flex;align-items:center;gap:0.5rem}
+.heart-stat-source::before{content:'';display:block;width:20px;height:0.5px;background:rgba(168,213,162,0.4)}
+
+/* CTA */
+.section-cta{
+  position:relative;z-index:1;padding:7rem 4rem;text-align:center;
+  background:rgba(168,213,162,0.08);
+  border-top:0.5px solid rgba(168,213,162,0.2);
+  border-bottom:0.5px solid rgba(168,213,162,0.2);
+}
+.cta-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
+.cta-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;line-height:1.2;color:var(--white);max-width:700px;margin:0 auto 1.5rem}
+.cta-title em{font-style:italic;color:var(--accent)}
+.cta-sub{font-size:0.95rem;color:var(--white-muted);margin-bottom:3rem;line-height:1.7;font-weight:300}
+.cta-form{display:flex;max-width:440px;margin:0 auto;border-radius:4px;overflow:hidden;border:0.5px solid rgba(168,213,162,0.3)}
+.cta-form input{flex:1;font-size:0.9rem;padding:0.9rem 1.25rem;border:none;background:rgba(255,255,255,0.08);color:var(--white);outline:none;font-family:var(--font-body)}
+.cta-form input::placeholder{color:var(--white-faint)}
+.cta-form button{font-family:var(--font-body);font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);background:var(--accent-warm);padding:0.9rem 1.75rem;border:none;cursor:pointer;transition:background 0.2s;white-space:nowrap}
+.cta-form button:hover{background:var(--white)}
+.cta-confirm{display:none;font-family:var(--font-display);font-size:1.4rem;font-weight:400;font-style:italic;color:var(--accent)}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--mist-border)}
+.footer-logo img{height:32px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.7}
+.footer-tagline{font-size:0.72rem;color:var(--white-faint);margin-top:0.4rem;letter-spacing:0.06em}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{font-size:0.72rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--white-faint);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.2)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.9s ease forwards;opacity:0}
+.fade-up-1{animation-delay:0.05s}.fade-up-2{animation-delay:0.12s}.fade-up-3{animation-delay:0.2s}.fade-up-4{animation-delay:0.28s}
+
+/* SECTION PHOTO BACKGROUNDS — swap each filename to match your downloaded photos */
+.section-problem{background:url("bg-problem.jpg") center/cover no-repeat fixed}
+.section-features{background:url("bg-features.jpg") center/cover no-repeat fixed}
+.section-heart{background:url("bg-heart.jpg") center/cover no-repeat fixed}
+.section-how{background:url("bg-how.jpg") center/cover no-repeat fixed}
+
+@media(max-width:900px){
+  nav{padding:0 2rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:7rem 2rem 4rem}
+  .hero-visual{display:none}
+  .stats-bar{grid-template-columns:repeat(2,1fr);padding:3rem 2rem}
+  .challenge-grid,.features-grid{grid-template-columns:1fr}
+  .features-header,.heart-header{grid-template-columns:1fr}
+  .heart-stats{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:3rem}
+  .steps::before{display:none}
+  .section-problem,.section-features,.section-how,.section-heart{padding:5rem 2rem}
+  footer{flex-direction:column;gap:2rem;text-align:center;padding:3rem 2rem}
+  .footer-links{justify-content:center;flex-wrap:wrap}
+}
+
+#page-loader{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--forest);
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity 0.5s ease, visibility 0.5s ease;
+}
+#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+#page-loader img{height:48px;width:auto;filter:brightness(0) invert(1);opacity:0.8}
+</style>
+</head>
+<body>
+
+
+
+<nav class="glass">
+  <a href="#" class="nav-logo"><img src="logo.png" alt="Discipler"></a>
+  <ul class="nav-links">
+    <li><a href="#problems">The Problem</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#heart">Our Heart</a></li>
+    <li><a href="#how">How It Works</a></li>
+  </ul>
+  <a href="mailto:contact@trydiscipler.com?subject=Request%20Access%20-%20Discipler&body=Hi%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20Discipler.%0A%0ALooking%20forward%20to%20hearing%20from%20you." class="nav-cta">Request Access</a>
+</nav>
+
+<section class="hero">
+
+  <div class="hero-left">
+    <h1 class="hero-title fade-up fade-up-2">Your ministry is growing.<br>Your systems <em>don't have to stay behind.</em></h1>
+    <p class="hero-body fade-up fade-up-3">Discipler is a mentorship management platform built for campus ministries and churches. Pair mentors with mentees, maintain accountability, and collect data — all in one place.</p>
+    <div class="hero-actions fade-up fade-up-4">
+      <a href="#cta" class="btn-primary">Get Early Access</a>
+      <a href="#how" class="btn-ghost">See how it works</a>
+    </div>
+  </div>
+  <div class="hero-visual fade-up fade-up-3">
+    <div class="dashboard-card glass-strong">
+      <div class="dash-header">
+        <span class="dash-title">Active Pairs</span>
+        <span class="dash-badge">Live</span>
+      </div>
+      <div class="match-pair">
+        <div class="avatar av-a">JM</div>
+        <div class="match-info"><p class="match-names">James M. &rarr; Sarah K.</p><p class="match-meta">Meeting weekly &middot; Week 6 of 12</p></div>
+        <span class="match-status status-active">Active</span>
+      </div>
+      <div class="match-pair">
+        <div class="avatar av-b">RL</div>
+        <div class="match-info"><p class="match-names">Rachel L. &rarr; Marcus T.</p><p class="match-meta">Paired 3 days ago</p></div>
+        <span class="match-status status-new">New</span>
+      </div>
+      <div class="match-pair">
+        <div class="avatar av-c">PW</div>
+        <div class="match-info"><p class="match-names">Pastor W. &rarr; Alyssa R.</p><p class="match-meta">Awaiting first meeting</p></div>
+        <span class="match-status status-pending">Pending</span>
+      </div>
+      <div class="dash-stat-row">
+        <div class="stat-box"><span class="stat-num">47</span><span class="stat-label">Pairs</span></div>
+        <div class="stat-box"><span class="stat-num">89%</span><span class="stat-label">Retention</span></div>
+        <div class="stat-box"><span class="stat-num">12</span><span class="stat-label">Pending</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="num">63%</span>
+    <span class="label">of pastors feel frequently overwhelmed <span style="opacity:0.5;font-size:0.6rem;">— Barna Research</span></span>
+  </div>
+  <div class="stat-item"><span class="num">76%</span><span class="label">of Gen Z want mentorship</span></div>
+  <div class="stat-item"><span class="num">37%</span><span class="label">of Gen Z have mentorship</span></div>
+</div>
+
+<section class="section-problem" id="problems">
+  <p class="section-label">The problem</p>
+  <h2 class="section-title">Pastors care deeply.<br>But care alone doesn't <em>scale.</em></h2>
+  <p class="section-intro">As Gen Z church attendance doubles and ministries grow, demand for mentorship is outpacing the relational infrastructure to support it. Across every denomination, we heard the same three challenges.</p>
+  <div class="challenge-grid">
+    <div class="challenge-card"><h3 class="challenge-title">Pairing mentors &amp; mentees</h3><p class="challenge-body">Pairing people well requires knowing availability, personality, spiritual maturity, and goals. Without a system, it falls through the cracks or defaults to who the pastor happens to know.</p></div>
+    <div class="challenge-card"><h3 class="challenge-title">Maintaining accountability</h3><p class="challenge-body">Mentorship relationships stall when there's no structure. Leaders need visibility into whether meetings are happening — without micromanaging every pair.</p></div>
+    <div class="challenge-card"><h3 class="challenge-title">Collecting feedback data</h3><p class="challenge-body">How do you know if your discipleship program is working? Most ministries have no way to collect meeting notes, track spiritual growth, or report on outcomes at scale.</p></div>
+  </div>
+</section>
+
+<section class="section-features" id="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <div>
+        <p class="features-label">The solution</p>
+        <h2 class="features-title">Built around how<br><em>ministry actually works</em></h2>
+      </div>
+      <p class="features-desc">Discipler isn't a generic CRM dressed up for churches. Every feature was designed from conversations with pastors who lived the problem — not assumptions made in a startup office.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card"><p class="feature-num">01</p><h3 class="feature-name">Structured Onboarding</h3><p class="feature-body">Guide both mentors and mentees through a thoughtful intake process that surfaces what you need to make great pairs — goals, availability, spiritual background, and communication style.</p></div>
+      <div class="feature-card"><p class="feature-num">02</p><h3 class="feature-name">Intelligent Pairing</h3><p class="feature-body">Move beyond guesswork. Discipler surfaces compatible pairs based on real criteria, so ministry leaders spend less time coordinating and more time shepherding.</p></div>
+      <div class="feature-card"><p class="feature-num">03</p><h3 class="feature-name">Scheduling Workflows</h3><p class="feature-body">Built-in scheduling tools help mentors and mentees find time together — with automated reminders that keep relationships moving forward without a pastor chasing everyone down.</p></div>
+      <div class="feature-card"><p class="feature-num">04</p><h3 class="feature-name">Discipleship Dashboard</h3><p class="feature-body">Get a real-time view of your entire discipleship program. See which pairs are meeting, which are stalling, and where your attention is needed — at a glance.</p></div>
+      <div class="feature-card"><p class="feature-num">05</p><h3 class="feature-name">Meeting Feedback</h3><p class="feature-body">After every meeting, mentors and mentees complete a simple check-in. Over time, this creates a rich picture of growth — and gives leaders data to strengthen their programs.</p></div>
+      <div class="feature-card"><p class="feature-num">06</p><h3 class="feature-name">Ministry Reporting</h3><p class="feature-body">When it's time to share results with elder boards, donors, or denominational leadership, Discipler gives you the numbers to show your discipleship program is working.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-testimonial">
+  <div class="testimonial-rule"></div>
+  <p class="testimonial-quote">"We had the heart for mentorship but no infrastructure to support it. We were losing people not because we didn't care — but because we had no system."</p>
+  <p class="testimonial-attr"><strong>Discipleship Mentor</strong> &middot; University of Georgia</p>
+</section>
+
+<section class="section-how" id="how">
+  <div class="how-inner">
+    <div class="how-header">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">Simple to run.<br><em>Built to scale.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-circle">I</div><h3 class="step-name">Onboard your community</h3><p class="step-body">Mentors and mentees complete a guided intake form. Takes under 10 minutes. No technical setup required.</p></div>
+      <div class="step"><div class="step-circle">II</div><h3 class="step-name">Review suggested pairs</h3><p class="step-body">Discipler surfaces compatible pairs. Leaders review and confirm — keeping human judgment at the center.</p></div>
+      <div class="step"><div class="step-circle">III</div><h3 class="step-name">Relationships begin</h3><p class="step-body">Pairs schedule their first meeting inside the platform. Automated workflows keep momentum going.</p></div>
+      <div class="step"><div class="step-circle">IV</div><h3 class="step-name">Track &amp; improve</h3><p class="step-body">Feedback flows in after each meeting. Your dashboard shows what's working and where to focus.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-heart" id="heart">
+  <div class="heart-inner">
+    <div class="heart-header">
+      <div>
+        <p class="section-label">Our heart</p>
+        <h2 class="section-title">The church <em>wants</em> to disciple.<br>The data shows something is getting in the way.</h2>
+      </div>
+      <p class="heart-intro">Discipler wasn't built to replace the pastor or the relationship. It was built because the gap between desire and action in discipleship is real, well-documented, and solvable. These numbers are why we exist.</p>
+    </div>
+    <div class="heart-stats">
+      <div class="heart-stat glass"><span class="heart-stat-num">33%</span><p class="heart-stat-text">Only one in three Christians is actively discipling someone else — despite it being a core call of the faith.</p><span class="heart-stat-source">Barna Group</span></div>
+      <div class="heart-stat glass"><span class="heart-stat-num">39%</span><p class="heart-stat-text">Nearly four in ten Christians are not engaged in any discipleship relationship at all — not as a mentor, not as a mentee.</p><span class="heart-stat-source">Barna Group</span></div>
+      <div class="heart-stat glass"><span class="heart-stat-num">8%</span><p class="heart-stat-text">Only 8% of pastors strongly agree their church's discipleship efforts are actually effective. The heart is there. The system isn't.</p><span class="heart-stat-source">Lifeway Research</span></div>
+      <div class="heart-stat glass"><span class="heart-stat-num">30%</span><p class="heart-stat-text">Just 30% of churches have specific methods to measure discipleship progress — making it nearly impossible to know what's working.</p><span class="heart-stat-source">Lifeway Research</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-cta" id="cta">
+  <p class="cta-eyebrow">Early access</p>
+  <h2 class="cta-title">Your congregation deserves a <em>discipleship program that scales.</em></h2>
+  <p class="cta-sub">Join ministry leaders already on the waitlist. We're onboarding churches and campus ministries now.</p>
+  <div class="cta-form" id="cta-form">
+    <input type="email" placeholder="your@ministry.com" id="cta-email">
+    <button type="button" id="cta-btn">Request Access</button>
+  </div>
+  <p class="cta-confirm" id="cta-confirm">Thank you for reaching out — we'll be in touch shortly.</p>
+</section>
+
+<footer>
+  <div>
+    <a href="#" class="footer-logo"><img src="logo.png" alt="Discipler"></a>
+    <p class="footer-tagline">Mentorship infrastructure for growing ministries</p>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#">About</a></li>
+    <li><a href="#">Features</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="mailto:contact@trydiscipler.com">Contact</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2025 Discipler LLC</p>
+</footer>
+
+<script>
+(function() {
+  var cards = document.querySelectorAll('.feature-card');
+  cards.forEach(function(card) {
+    var blob = document.createElement('div');
+    blob.className = 'light-blob';
+    card.insertBefore(blob, card.firstChild);
+  });
+  var mx = 0, my = 0;
+  function updateBlobs() {
+    cards.forEach(function(card) {
+      var blob = card.querySelector('.light-blob');
+      if (!blob) return;
+      var r = card.getBoundingClientRect();
+      blob.style.left = (mx - r.left) + 'px';
+      blob.style.top  = (my - r.top)  + 'px';
+    });
+  }
+  document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; updateBlobs(); });
+  window.addEventListener('scroll', updateBlobs, { passive: true });
+  var btn = document.getElementById('cta-btn');
+  if (btn) {
+    btn.addEventListener('click', function() {
+      var email = document.getElementById('cta-email').value.trim();
+      var subject = encodeURIComponent('New Access Request - Discipler');
+      var body = encodeURIComponent('Someone requested access to Discipler.\n\nTheir email: ' + (email || 'not provided'));
+      var a = document.createElement('a');
+      a.href = 'mailto:contact@trydiscipler.com?subject=' + subject + '&body=' + body;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      document.getElementById('cta-form').style.display = 'none';
+      document.getElementById('cta-confirm').style.display = 'block';
+    });
+  }
+})();
+
+  // Page loader — hide once everything is ready
+  window.addEventListener('load', function() {
+    var loader = document.getElementById('page-loader');
+    if (loader) loader.classList.add('hidden');
+  });
+  // Fallback in case load event already fired
+  if (document.readyState === 'complete') {
+    var loader = document.getElementById('page-loader');
+    if (loader) loader.classList.add('hidden');
+  }
+</script>
+</body>
+</html>
