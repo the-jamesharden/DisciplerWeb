@@ -156,7 +156,7 @@ nav{
 .section-title em{font-style:italic;color:var(--accent)}
 
 /* PROBLEM */
-.section-problem{position:relative;z-index:1;padding:8rem 4rem;max-width:1200px;margin:0 auto}
+.section-problem{position:relative;z-index:1;padding:8rem 4rem}
 .section-intro{font-size:1rem;line-height:1.8;color:var(--white-muted);max-width:600px;margin-bottom:4rem;font-weight:300}
 
 .challenge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -222,7 +222,7 @@ nav{
 .step-body{font-size:0.82rem;line-height:1.7;color:var(--white-muted);font-weight:300}
 
 /* OUR HEART */
-.section-heart{position:relative;z-index:1;padding:8rem 4rem}
+.section-heart{position:relative;z-index:1;padding:8rem 4rem;width:100%}
 .heart-inner{max-width:1200px;margin:0 auto}
 .heart-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;padding-bottom:3rem;border-bottom:0.5px solid var(--mist-border)}
 .heart-intro{font-size:1rem;line-height:1.85;color:var(--white-muted);font-weight:300}
@@ -274,7 +274,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 .section-problem{background:url("bg-problem.jpg") center/cover no-repeat}
 .section-features{background:url("bg-features.jpg") center/cover no-repeat}
 .section-heart{background:url("bg-heart.jpg") center/cover no-repeat}
-.section-heart::before,.section-problem::before,.section-features::before,.section-how::before{
+.section-heart::before,.section-features::before{
   content:'';position:absolute;inset:0;
   background:linear-gradient(
     to bottom,
@@ -285,7 +285,9 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
   );
   z-index:0;pointer-events:none;
 }
-.section-heart>*,.section-problem>*,.section-features>*,.section-how>*{position:relative;z-index:1;}
+.section-heart>*,.section-features>*{position:relative;z-index:1;}
+.section-problem>*{position:relative;z-index:1;}
+.section-how>*{position:relative;z-index:1;}
 .section-how{background:url("bg-how.jpg") center/cover no-repeat}
 
 @media(max-width:900px){
