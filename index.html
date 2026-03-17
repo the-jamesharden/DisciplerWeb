@@ -167,7 +167,7 @@ nav{
   border:0.5px solid var(--mist-border);
   transition:background 0.25s,border-color 0.25s;
 }
-.challenge-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(168,213,162,0.3)}
+
 .challenge-title{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:1rem}
 .challenge-body{font-size:0.88rem;line-height:1.75;color:var(--white-muted);font-weight:300}
 
@@ -274,6 +274,18 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 .section-problem{background:url("bg-problem.jpg") center/cover no-repeat}
 .section-features{background:url("bg-features.jpg") center/cover no-repeat}
 .section-heart{background:url("bg-heart.jpg") center/cover no-repeat}
+.section-heart::before,.section-problem::before,.section-features::before,.section-how::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(10,30,18,0.45) 0%,
+    rgba(10,30,18,0.65) 40%,
+    rgba(10,30,18,0.65) 60%,
+    rgba(10,30,18,0.45) 100%
+  );
+  z-index:0;pointer-events:none;
+}
+.section-heart>*,.section-problem>*,.section-features>*,.section-how>*{position:relative;z-index:1;}
 .section-how{background:url("bg-how.jpg") center/cover no-repeat}
 
 @media(max-width:900px){
