@@ -156,7 +156,7 @@ nav{
 .section-title em{font-style:italic;color:var(--accent)}
 
 /* PROBLEM */
-.section-problem{position:relative;z-index:1;padding:8rem 4rem}
+.section-problem{position:relative;z-index:1;padding:8rem 4rem;background:url('bg-problem.jpg') center/cover no-repeat}
 .section-intro{font-size:1rem;line-height:1.8;color:var(--white-muted);max-width:600px;margin-bottom:4rem;font-weight:300}
 
 .challenge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -172,7 +172,7 @@ nav{
 .challenge-body{font-size:0.88rem;line-height:1.75;color:var(--white-muted);font-weight:300}
 
 /* FEATURES */
-.section-features{position:relative;z-index:1;padding:8rem 4rem}
+.section-features{position:relative;z-index:1;padding:8rem 4rem;background:url('bg-features.jpg') center/cover no-repeat}
 .features-inner{max-width:1200px;margin:0 auto}
 .features-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:5rem;align-items:end}
 .features-label{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
@@ -202,19 +202,19 @@ nav{
 .testimonial-attr strong{color:var(--white-muted);font-weight:500}
 
 /* HOW IT WORKS */
-.section-how{position:relative;z-index:1;padding:8rem 4rem;min-height:100vh}
+.section-how{position:relative;z-index:1;padding:10rem 4rem;min-height:100vh;background:url('bg-how.jpg') center/cover no-repeat}
 .how-inner{max-width:1200px;margin:0 auto}
 .how-header{margin-bottom:5rem}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
 .steps::before{content:'';position:absolute;top:28px;left:14%;right:14%;height:0.5px;background:var(--mist-border)}
 .step{text-align:center;padding:0 1rem}
 .step-circle{
-  width:56px;height:56px;border-radius:50%;
+  width:80px;height:80px;border-radius:50%;
   background:rgba(168,213,162,0.1);
   border:0.5px solid rgba(168,213,162,0.4);
   display:flex;align-items:center;justify-content:center;
   margin:0 auto 1.5rem;
-  font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--accent);
+  font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--accent);
   position:relative;z-index:1;
   backdrop-filter:blur(10px);
 }
@@ -222,7 +222,7 @@ nav{
 .step-body{font-size:0.82rem;line-height:1.7;color:var(--white-muted);font-weight:300}
 
 /* OUR HEART */
-.section-heart{position:relative;z-index:1;padding:8rem 4rem;width:100%}
+.section-heart{position:relative;z-index:1;padding:8rem 4rem;background:url('bg-heart.jpg') center/cover no-repeat}
 .heart-inner{max-width:1200px;margin:0 auto}
 .heart-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;padding-bottom:3rem;border-bottom:0.5px solid var(--mist-border)}
 .heart-intro{font-size:1rem;line-height:1.85;color:var(--white-muted);font-weight:300}
@@ -271,9 +271,6 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 .fade-up-1{animation-delay:0.05s}.fade-up-2{animation-delay:0.12s}.fade-up-3{animation-delay:0.2s}.fade-up-4{animation-delay:0.28s}
 
 /* SECTION PHOTO BACKGROUNDS — swap each filename to match your downloaded photos */
-.section-problem{background:url("bg-problem.jpg") center/cover no-repeat}
-.section-features{background:url("bg-features.jpg") center/cover no-repeat}
-.section-heart{background:url("bg-heart.jpg") center/cover no-repeat}
 .section-heart::before,.section-features::before{
   content:'';position:absolute;inset:0;
   background:linear-gradient(
@@ -285,10 +282,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
   );
   z-index:0;pointer-events:none;
 }
-.section-heart>*,.section-features>*{position:relative;z-index:1;}
-.section-problem>*{position:relative;z-index:1;}
-.section-how>*{position:relative;z-index:1;}
-.section-how{background:url("bg-how.jpg") center/cover no-repeat}
+.section-heart>*,.section-features>*,.section-problem>*,.section-how>*{position:relative;z-index:1;}
 
 @media(max-width:900px){
   nav{padding:0 2rem}
