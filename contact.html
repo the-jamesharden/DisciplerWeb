@@ -21,7 +21,7 @@
   --font-sans:'Inter',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--font-sans);background:var(--forest);color:var(--white);min-height:100vh;display:flex;flex-direction:column}
+body{font-family:var(--font-sans);background:url('bg-contact.jpg') center/cover no-repeat fixed var(--forest);color:var(--white);min-height:100vh;display:flex;flex-direction:column}
 
 nav{
   display:flex;align-items:center;justify-content:space-between;
@@ -77,6 +77,31 @@ textarea.form-input{resize:vertical;min-height:130px}
 }
 .form-submit:hover{background:rgba(255,255,255,0.95)}
 
+.file-upload-label{
+  display:flex;align-items:center;justify-content:center;gap:0.75rem;
+  width:100%;padding:1rem;
+  border:0.5px dashed rgba(168,213,162,0.4);
+  border-radius:8px;
+  background:rgba(255,255,255,0.04);
+  color:var(--white-muted);
+  font-size:0.85rem;cursor:pointer;
+  transition:all 0.2s;
+  margin-top:0.25rem;
+}
+.file-upload-label:hover{border-color:rgba(168,213,162,0.7);background:rgba(168,213,162,0.06);color:var(--white)}
+.file-upload-label input[type="file"]{display:none}
+.file-upload-icon{font-size:1.1rem;opacity:0.7}
+.file-preview{margin-top:0.75rem;display:flex;flex-wrap:wrap;gap:0.5rem}
+.file-preview-item{
+  font-size:0.72rem;color:var(--accent);
+  background:rgba(168,213,162,0.1);
+  border:0.5px solid rgba(168,213,162,0.25);
+  border-radius:4px;padding:0.25rem 0.6rem;
+  display:flex;align-items:center;gap:0.4rem;
+}
+.file-preview-remove{cursor:pointer;opacity:0.6;font-size:0.8rem}
+.file-preview-remove:hover{opacity:1}
+
 .confirm{display:none;text-align:center;padding:2rem 0}
 .confirm-title{font-family:var(--font-serif);font-size:1.5rem;font-weight:400;font-style:italic;color:var(--accent);margin-bottom:0.75rem}
 .confirm-sub{font-size:0.9rem;color:var(--white-muted);line-height:1.7}
@@ -129,6 +154,15 @@ footer{
         <label class="form-label" for="message">Message</label>
         <textarea class="form-input" id="message" placeholder="How can we help you?"></textarea>
       </div>
+      <div class="form-group">
+        <label class="form-label">Attachment <span style="opacity:0.5;font-size:0.65rem;">(optional)</span></label>
+        <label class="file-upload-label" id="upload-label">
+          <span class="file-upload-icon">📎</span>
+          <span id="upload-text">Attach a photo or file</span>
+          <input type="file" id="file-input" multiple accept="image/*,.pdf,.doc,.docx" onchange="handleFiles(this)">
+        </label>
+        <div class="file-preview" id="file-preview"></div>
+      </div>
       <button class="form-submit" onclick="submitForm()">Send Message</button>
     </div>
 
@@ -145,6 +179,28 @@ footer{
 </footer>
 
 <script>
+function handleFiles(input) {
+  var preview = document.getElementById('file-preview');
+  var text = document.getElementById('upload-text');
+  var files = Array.from(input.files);
+  preview.innerHTML = '';
+  files.forEach(function(f, i) {
+    var item = document.createElement('span');
+    item.className = 'file-preview-item';
+    item.innerHTML = f.name + ' <span class="file-preview-remove" onclick="removeFile(' + i + ')">✕</span>';
+    preview.appendChild(item);
+  });
+  text.textContent = files.length > 0 ? files.length + ' file' + (files.length > 1 ? 's' : '') + ' selected' : 'Attach a photo or file';
+}
+
+function removeFile(index) {
+  var input = document.getElementById('file-input');
+  var dt = new DataTransfer();
+  Array.from(input.files).forEach(function(f, i) { if (i !== index) dt.items.add(f); });
+  input.files = dt.files;
+  handleFiles(input);
+}
+
 function submitForm() {
   var name = document.getElementById('name').value.trim();
   var email = document.getElementById('email').value.trim();
