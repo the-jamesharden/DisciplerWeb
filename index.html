@@ -322,7 +322,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <li><a href="#how">How It Works</a></li>
     <li><a href="#heart">Our Heart</a></li>
   </ul>
-  <a href="/cdn-cgi/l/email-protection#e784888993868493a793959e838e94848e978b8295c984888ad89492858d828493dab5829692829493c2d5d7a68484829494c2d5d7cac2d5d7a38e94848e978b8295c18588839edaaf8ec2d5a4c2d7a6c2d7a6aec2d5d083c2d5d78b8e8c82c2d5d79388c2d5d795829692829493c2d5d7868484829494c2d5d79388c2d5d7a38e94848e978b8295c9c2d7a6c2d7a6ab88888c8e8980c2d5d781889590869583c2d5d79388c2d5d78f8286958e8980c2d5d78195888ac2d5d79e8892c9" class="nav-cta">Request Access</a>
+  <a href="#cta" class="nav-cta">Join Pilot</a>
 </nav>
 
 <section class="hero">
@@ -331,7 +331,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <h1 class="hero-title fade-up fade-up-2">Your ministry is growing.<br>Your systems <em>don't have to stay behind.</em></h1>
     <p class="hero-body fade-up fade-up-3">Discipler is a mentorship management platform built for campus ministries and churches. Pair mentors with mentees, maintain accountability, and collect data — all in one place.</p>
     <div class="hero-actions fade-up fade-up-4">
-      <a href="#cta" class="btn-primary">Get Early Access</a>
+      <a href="#cta" class="btn-primary">Join the Fall Pilot</a>
       <a href="#how" class="btn-ghost">See how it works</a>
     </div>
   </div>
@@ -445,14 +445,14 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 </section>
 
 <section class="section-cta" id="cta">
-  <p class="cta-eyebrow">Early access</p>
-  <h2 class="cta-title">Your congregation deserves a <em>discipleship program that scales.</em></h2>
-  <p class="cta-sub">Join ministry leaders already on the waitlist. We're onboarding churches and campus ministries now.</p>
+  <p class="cta-eyebrow">2026 Fall pilot program</p>
+  <h2 class="cta-title">Bring Discipler to your ministry <em>this fall.</em></h2>
+  <p class="cta-sub">We're inviting a limited number of churches and campus ministries into the fall pilot. Share your email and we'll follow up with pilot details, pricing, and next steps.</p>
   <div class="cta-form" id="cta-form">
     <input type="email" placeholder="your@ministry.com" id="cta-email">
-    <button type="button" id="cta-btn">Request Access</button>
+    <button type="button" id="cta-btn">Join the Fall Pilot</button>
   </div>
-  <p class="cta-confirm" id="cta-confirm">Thank you for reaching out — we'll be in touch shortly.</p>
+  <p class="cta-confirm" id="cta-confirm">Thank you — we'll follow up about the fall pilot shortly.</p>
 </section>
 
 <footer>
@@ -495,8 +495,8 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
   if (btn) {
     btn.addEventListener('click', function() {
       var email = document.getElementById('cta-email').value.trim();
-      var subject = encodeURIComponent('New Access Request - Discipler');
-      var body = encodeURIComponent('Someone requested access to Discipler.\n\nTheir email: ' + (email || 'not provided'));
+      var subject = encodeURIComponent('Fall Pilot Interest - Discipler');
+      var body = encodeURIComponent('Someone requested information about the Discipler fall pilot.\n\nTheir email: ' + (email || 'not provided'));
       var a = document.createElement('a');
       a.href = 'mailto:contact@trydiscipler.com?subject=' + subject + '&body=' + body;
       document.body.appendChild(a);
@@ -509,4 +509,10 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 })();
 
   // Page loader — hide once everything is ready
-  window.addEventL
+  window.addEventListener('load', function() {
+    var loader = document.getElementById('page-loader');
+    if (loader) loader.classList.add('hidden');
+  });
+</script>
+</body>
+</html>
