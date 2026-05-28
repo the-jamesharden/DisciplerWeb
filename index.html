@@ -491,22 +491,84 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
   }
   document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; updateBlobs(); });
   window.addEventListener('scroll', updateBlobs, { passive: true });
-  var btn = document.getElementById('cta-btn');
-  if (btn) {
-    btn.addEventListener('click', function() {
-      var email = document.getElementById('cta-email').value.trim();
-      var subject = encodeURIComponent('Fall Pilot Inquiry - Discipler');
-      var body = encodeURIComponent('Someone is interested in the Discipler Fall Pilot.\n\nTheir email: ' + (email || 'not provided'));
-      var a = document.createElement('a');
-      a.href = 'mailto:contact@trydiscipler.com?subject=' + subject + '&body=' + body;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      document.getElementById('cta-form').style.display = 'none';
-      document.getElementById('cta-confirm').style.display = 'block';
+
+  /* ============================================================
+     FALL PILOT EMAIL CAPTURE  ->  Google Sheet
+     ------------------------------------------------------------
+     1. Create a Google Sheet (see the steps you were given).
+     2. Deploy the Apps Script as a Web App ("Anyone" access).
+     3. Paste the /exec URL below, replacing PASTE_YOUR_URL_HERE.
+     That's the ONLY thing you need to change.
+     ============================================================ */
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwUH05zV4SG77uCaWvOPfNcwEn0LAow2cLQ9KWOIF0YAGXQxDlNLnfaJezD29feJi0pMg/exec';
+
+  var btn      = document.getElementById('cta-btn');
+  var input    = document.getElementById('cta-email');
+  var form     = document.getElementById('cta-form');
+  var confirm  = document.getElementById('cta-confirm');
+
+  function isValidEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  function submitEmail() {
+    var email = (input.value || '').trim();
+
+    if (!isValidEmail(email)) {
+      input.focus();
+      input.style.outline = '1px solid #e08a8a';
+      btn.textContent = 'Enter a valid email';
+      setTimeout(function () {
+        input.style.outline = 'none';
+        btn.textContent = 'Join the Fall Pilot';
+      }, 1800);
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch(SHEET_ENDPOINT, {
+      method: 'POST',
+      // Plain-text body = a "simple" request, so the browser skips the
+      // CORS preflight that Apps Script can't answer. doPost still
+      // JSON.parses e.postData.contents on the server side.
+      body: JSON.stringify({
+        email:  email,
+        source: 'fall-pilot',
+        page:   location.href
+      })
+    })
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      if (data && data.result === 'success') {
+        form.style.display = 'none';
+        confirm.style.display = 'block';
+      } else {
+        throw new Error(data && data.error ? data.error : 'Unknown error');
+      }
+    })
+    .catch(function (err) {
+      console.error('Submit failed:', err);
+      btn.disabled = false;
+      btn.textContent = 'Try again';
+      setTimeout(function () { btn.textContent = 'Join the Fall Pilot'; }, 2500);
     });
   }
-})();
 
-  // Page loader — hide once everything is ready
-  window.addEventL
+  if (btn) {
+    btn.addEventListener('click', submitEmail);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); submitEmail(); }
+    });
+  }
+
+  // Page loader — hide once everything is ready (safe no-op if absent)
+  window.addEventListener('load', function () {
+    var loader = document.getElementById('page-loader');
+    if (loader) loader.classList.add('hidden');
+  });
+})();
+</script>
+</body>
+</html>
