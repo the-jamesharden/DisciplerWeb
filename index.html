@@ -322,7 +322,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <li><a href="#how">How It Works</a></li>
     <li><a href="#heart">Our Heart</a></li>
   </ul>
-  <a href="/cdn-cgi/l/email-protection#e784888993868493a793959e838e94848e978b8295c984888ad89492858d828493dab5829692829493c2d5d7a68484829494c2d5d7cac2d5d7a38e94848e978b8295c18588839edaaf8ec2d5a4c2d7a6c2d7a6aec2d5d083c2d5d78b8e8c82c2d5d79388c2d5d795829692829493c2d5d7868484829494c2d5d79388c2d5d7a38e94848e978b8295c9c2d7a6c2d7a6ab88888c8e8980c2d5d781889590869583c2d5d79388c2d5d78f8286958e8980c2d5d78195888ac2d5d79e8892c9" class="nav-cta">Join Pilot</a>
+  <a href="#cta" class="nav-cta" id="nav-join">Join Pilot</a>
 </nav>
 
 <section class="hero">
@@ -560,6 +560,16 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     btn.addEventListener('click', submitEmail);
     input.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') { e.preventDefault(); submitEmail(); }
+    });
+  }
+
+  // "Join Pilot" nav button -> scroll to the email field and focus it
+  var navJoin = document.getElementById('nav-join');
+  if (navJoin && input) {
+    navJoin.addEventListener('click', function (e) {
+      e.preventDefault();
+      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(function () { input.focus({ preventScroll: true }); }, 600);
     });
   }
 
