@@ -4,6 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Discipler</title>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'YOUR_PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -14,6 +33,7 @@
   --white-faint:rgba(255,255,255,0.35);
   --accent:#a8d5a2;
   --accent-warm:#c8e6c4;
+  --error:#e8a8a8;
   --mist-strong:rgba(255,255,255,0.13);
   --mist-border:rgba(255,255,255,0.18);
   --font-serif:'Playfair Display',Georgia,serif;
@@ -65,7 +85,11 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 
 }
 .form-input:focus{border-color:rgba(168,213,162,0.6)}
 .form-input::placeholder{color:var(--white-faint)}
+.form-input.invalid{border-color:rgba(232,168,168,0.7)}
 textarea.form-input{resize:vertical;min-height:130px}
+
+.form-error{display:none;font-size:0.75rem;color:var(--error);margin-top:0.4rem;letter-spacing:0.02em}
+.form-error.show{display:block}
 
 .form-submit{
   width:100%;font-family:var(--font-sans);font-size:0.78rem;font-weight:500;
@@ -101,8 +125,8 @@ footer{
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Discipler"></a>
-  <a href="index.html" class="nav-back">Back to site</a>
+  <a href="/" class="nav-logo"><img src="logo.png" alt="Discipler"></a>
+  <a href="/" class="nav-back">Back to site</a>
 </nav>
 
 <main>
@@ -119,6 +143,7 @@ footer{
       <div class="form-group">
         <label class="form-label" for="email">Email address</label>
         <input class="form-input" type="email" id="email" placeholder="your@email.com" />
+        <p class="form-error" id="error-msg">Please enter your name and a valid email address.</p>
       </div>
       <div class="form-group">
         <label class="form-label" for="ministry">Ministry or church</label>
@@ -139,20 +164,46 @@ footer{
 </main>
 
 <footer>
-  <p class="footer-copy">&copy; 2025 Discipler LLC</p>
+  <p class="footer-copy">&copy; 2026 Discipler LLC</p>
   <a href="mailto:contact@trydiscipler.com" class="footer-email">contact@trydiscipler.com</a>
 </footer>
 
 <script>
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 function submitForm() {
-  var name = document.getElementById('name').value.trim();
-  var email = document.getElementById('email').value.trim();
+  var nameEl = document.getElementById('name');
+  var emailEl = document.getElementById('email');
+  var name = nameEl.value.trim();
+  var email = emailEl.value.trim();
   var ministry = document.getElementById('ministry').value.trim();
   var message = document.getElementById('message').value.trim();
+
+  var errorEl = document.getElementById('error-msg');
+  var nameOk = name.length > 0;
+  var emailOk = isValidEmail(email);
+
+  // Reset visual error state
+  nameEl.classList.toggle('invalid', !nameOk);
+  emailEl.classList.toggle('invalid', !emailOk);
+
+  if (!nameOk || !emailOk) {
+    errorEl.classList.add('show');
+    return; // stop — do NOT fire Lead or show confirmation
+  }
+  errorEl.classList.remove('show');
+
+  // Genuine submission — fire the Meta Pixel Lead event
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead');
+  }
+
   var subject = encodeURIComponent('New Message — Discipler');
   var body = encodeURIComponent(
-    'Name: ' + (name || 'not provided') +
-    '\nEmail: ' + (email || 'not provided') +
+    'Name: ' + name +
+    '\nEmail: ' + email +
     '\nMinistry: ' + (ministry || 'not provided') +
     '\n\nMessage:\n' + (message || 'not provided')
   );
@@ -161,6 +212,7 @@ function submitForm() {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+
   document.getElementById('contact-form').style.display = 'none';
   document.getElementById('confirm').style.display = 'block';
 }
