@@ -29,7 +29,7 @@
 }
 
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);background:var(--forest);color:var(--white);overflow-x:hidden;min-height:108vh}
+body{font-family:var(--font-body);background:var(--forest);color:var(--white);overflow-x:hidden;min-height:100vh}
 
 
 
@@ -68,7 +68,7 @@ nav{
 /* HERO */
 .hero{
   position:relative;z-index:1;
-  min-height:108vh;display:grid;grid-template-columns:1fr 1fr;
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
   align-items:center;padding:8rem 4rem 4rem;gap:4rem;overflow:hidden;
   background:url("bg-hero.jpg") center/cover no-repeat;
 }
@@ -81,12 +81,12 @@ nav{
 
 .hero-title{
   font-family:var(--font-display);
-  font-size:clamp(3rem,5.5vw,5rem);
-  font-weight:700;line-height:1.05;
+  font-size:clamp(2.6rem,4.8vw,4.25rem);
+  font-weight:700;line-height:1.1;
   color:var(--white);margin-bottom:2rem;
 }
 .hero-title em{font-style:italic;color:var(--accent)}
-.hero-body{font-size:1rem;line-height:1.8;color:var(--white-muted);max-width:480px;margin-bottom:3rem;font-weight:300}
+.hero-body{font-size:1.15rem;line-height:1.75;color:var(--white-muted);max-width:480px;margin-bottom:3rem;font-weight:300}
 .hero-actions{display:flex;align-items:center;gap:2rem}
 
 .btn-primary{
@@ -156,7 +156,7 @@ nav{
 .section-title em{font-style:italic;color:var(--accent)}
 
 /* PROBLEM */
-.section-problem{position:relative;z-index:1;padding:8rem 4rem;background:url('bg-problem.jpg') center/cover no-repeat}
+.section-problem{position:relative;z-index:1;padding:8rem 4rem;max-width:1200px;margin:0 auto}
 .section-intro{font-size:1rem;line-height:1.8;color:var(--white-muted);max-width:600px;margin-bottom:4rem;font-weight:300}
 
 .challenge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -167,12 +167,12 @@ nav{
   border:0.5px solid var(--mist-border);
   transition:background 0.25s,border-color 0.25s;
 }
-
+.challenge-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(168,213,162,0.3)}
 .challenge-title{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:1rem}
 .challenge-body{font-size:0.88rem;line-height:1.75;color:var(--white-muted);font-weight:300}
 
 /* FEATURES */
-.section-features{position:relative;z-index:1;padding:8rem 4rem;background:url('bg-features.jpg') center/cover no-repeat}
+.section-features{position:relative;z-index:1;padding:8rem 4rem}
 .features-inner{max-width:1200px;margin:0 auto}
 .features-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:5rem;align-items:end}
 .features-label{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
@@ -202,19 +202,19 @@ nav{
 .testimonial-attr strong{color:var(--white-muted);font-weight:500}
 
 /* HOW IT WORKS */
-.section-how{position:relative;z-index:1;padding:10rem 4rem;min-height:108vh;background:url('bg-how.jpg') center/cover no-repeat}
+.section-how{position:relative;z-index:1;padding:8rem 4rem}
 .how-inner{max-width:1200px;margin:0 auto}
 .how-header{margin-bottom:5rem}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
 .steps::before{content:'';position:absolute;top:28px;left:14%;right:14%;height:0.5px;background:var(--mist-border)}
 .step{text-align:center;padding:0 1rem}
 .step-circle{
-  width:80px;height:80px;border-radius:50%;
+  width:56px;height:56px;border-radius:50%;
   background:rgba(168,213,162,0.1);
   border:0.5px solid rgba(168,213,162,0.4);
   display:flex;align-items:center;justify-content:center;
   margin:0 auto 1.5rem;
-  font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--accent);
+  font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--accent);
   position:relative;z-index:1;
   backdrop-filter:blur(10px);
 }
@@ -222,7 +222,7 @@ nav{
 .step-body{font-size:0.82rem;line-height:1.7;color:var(--white-muted);font-weight:300}
 
 /* OUR HEART */
-.section-heart{position:relative;z-index:1;padding:8rem 4rem;background:url('bg-heart.jpg') center/cover no-repeat}
+.section-heart{position:relative;z-index:1;padding:8rem 4rem}
 .heart-inner{max-width:1200px;margin:0 auto}
 .heart-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;padding-bottom:3rem;border-bottom:0.5px solid var(--mist-border)}
 .heart-intro{font-size:1rem;line-height:1.85;color:var(--white-muted);font-weight:300}
@@ -271,18 +271,10 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 .fade-up-1{animation-delay:0.05s}.fade-up-2{animation-delay:0.12s}.fade-up-3{animation-delay:0.2s}.fade-up-4{animation-delay:0.28s}
 
 /* SECTION PHOTO BACKGROUNDS — swap each filename to match your downloaded photos */
-.section-heart::before,.section-features::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(10,30,18,0.45) 0%,
-    rgba(10,30,18,0.65) 40%,
-    rgba(10,30,18,0.65) 60%,
-    rgba(10,30,18,0.45) 100%
-  );
-  z-index:0;pointer-events:none;
-}
-.section-heart>*,.section-features>*,.section-problem>*,.section-how>*{position:relative;z-index:1;}
+.section-problem{background:url("bg-problem.jpg") center/cover no-repeat fixed}
+.section-features{background:url("bg-features.jpg") center/cover no-repeat fixed}
+.section-heart{background:url("bg-heart.jpg") center/cover no-repeat fixed}
+.section-how{background:url("bg-how.jpg") center/cover no-repeat fixed}
 
 @media(max-width:900px){
   nav{padding:0 2rem}
@@ -319,19 +311,19 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
   <ul class="nav-links">
     <li><a href="#problems">The Problem</a></li>
     <li><a href="#features">Features</a></li>
-    <li><a href="#how">How It Works</a></li>
     <li><a href="#heart">Our Heart</a></li>
+    <li><a href="#how">How It Works</a></li>
   </ul>
-  <a href="#cta" class="nav-cta" id="nav-join">Join Pilot</a>
+  <a href="mailto:contact@trydiscipler.com?subject=Join%20Pilot%20-%20Discipler&body=Hi%2C%0A%0AI%27d%20like%20to%20join%20the%20Fall%20pilot%20for%20Discipler.%0A%0ALooking%20forward%20to%20hearing%20from%20you." class="nav-cta">Join Pilot</a>
 </nav>
 
 <section class="hero">
 
   <div class="hero-left">
-    <h1 class="hero-title fade-up fade-up-2">Your ministry is growing.<br>Your systems <em>don't have to stay behind.</em></h1>
-    <p class="hero-body fade-up fade-up-3">Discipler is a mentorship management platform built for campus ministries and churches. Pair mentors with mentees, maintain accountability, and collect data — all in one place.</p>
+    <h1 class="hero-title fade-up fade-up-2">Run discipleship <em>without the chaos.</em></h1>
+    <p class="hero-body fade-up fade-up-3">We help ministry leaders who are stuck using spreadsheets and text messages to manage discipleship, so they can spend more time caring for people, without worrying that someone is being forgotten.</p>
     <div class="hero-actions fade-up fade-up-4">
-      <a href="#cta" class="btn-primary">Join the Fall Pilot</a>
+      <a href="#cta" class="btn-primary">Join Fall Pilot</a>
       <a href="#how" class="btn-ghost">See how it works</a>
     </div>
   </div>
@@ -370,18 +362,18 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <span class="num">63%</span>
     <span class="label">of pastors feel frequently overwhelmed <span style="opacity:0.5;font-size:0.6rem;">— Barna Research</span></span>
   </div>
-  <div class="stat-item"><span class="num">76%</span><span class="label">of Gen Z want mentorship</span></div>
-  <div class="stat-item"><span class="num">37%</span><span class="label">of Gen Z have mentorship</span></div>
+  <div class="stat-item"><span class="num">76%</span><span class="label">say mentorship matters <span style="opacity:0.5;font-size:0.6rem;">— HBR, 2021</span></span></div>
+  <div class="stat-item"><span class="num">37%</span><span class="label">actually have a mentor <span style="opacity:0.5;font-size:0.6rem;">— HBR, 2021</span></span></div>
 </div>
 
 <section class="section-problem" id="problems">
   <p class="section-label">The problem</p>
-  <h2 class="section-title">Pastors care deeply.<br>But care alone doesn't <em>scale.</em></h2>
+  <h2 class="section-title">Pastors care deeply.<br>But <em>even strong ministries can lose track</em> of who is being cared for.</h2>
   <p class="section-intro">As Gen Z church attendance doubles and ministries grow, demand for mentorship is outpacing the relational infrastructure to support it. Across every denomination, we heard the same three challenges.</p>
   <div class="challenge-grid">
     <div class="challenge-card"><h3 class="challenge-title">Pairing mentors &amp; mentees</h3><p class="challenge-body">Pairing people well requires knowing availability, personality, spiritual maturity, and goals. Without a system, it falls through the cracks or defaults to who the pastor happens to know.</p></div>
     <div class="challenge-card"><h3 class="challenge-title">Maintaining accountability</h3><p class="challenge-body">Mentorship relationships stall when there's no structure. Leaders need visibility into whether meetings are happening — without micromanaging every pair.</p></div>
-    <div class="challenge-card"><h3 class="challenge-title">Collecting feedback data</h3><p class="challenge-body">How do you know if your discipleship program is working? Most ministries have no way to collect meeting notes, track spiritual growth, or report on outcomes at scale.</p></div>
+    <div class="challenge-card"><h3 class="challenge-title">Collecting feedback data</h3><p class="challenge-body">How do you know if your discipleship program is working? Most ministries have no way to collect meeting notes, track spiritual growth, or report on outcomes across the whole program.</p></div>
   </div>
 </section>
 
@@ -415,7 +407,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
   <div class="how-inner">
     <div class="how-header">
       <p class="section-label">How it works</p>
-      <h2 class="section-title">Simple to run.<br><em>Built to scale.</em></h2>
+      <h2 class="section-title">Simple to run.<br><em>Built to grow.</em></h2>
     </div>
     <div class="steps">
       <div class="step"><div class="step-circle">I</div><h3 class="step-name">Onboard your community</h3><p class="step-body">Mentors and mentees complete a guided intake form. Takes under 10 minutes. No technical setup required.</p></div>
@@ -445,12 +437,12 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 </section>
 
 <section class="section-cta" id="cta">
-  <p class="cta-eyebrow">2026 Fall pilot program</p>
-  <h2 class="cta-title">Bring Discipler to your ministry <em>this fall.</em></h2>
-  <p class="cta-sub">We're inviting a limited number of churches and campus ministries into the fall pilot. Share your email and we'll follow up with pilot details, pricing, and next steps.</p>
+  <p class="cta-eyebrow">Early access</p>
+  <h2 class="cta-title">Your congregation deserves a <em>discipleship program that grows with you.</em></h2>
+  <p class="cta-sub">Join ministry leaders already on the waitlist. We're onboarding churches and campus ministries now.</p>
   <div class="cta-form" id="cta-form">
     <input type="email" placeholder="your@ministry.com" id="cta-email">
-    <button type="button" id="cta-btn">Join the Fall Pilot</button>
+    <button type="button" id="cta-btn">Join Pilot</button>
   </div>
   <p class="cta-confirm" id="cta-confirm">Thank you for reaching out — we'll be in touch shortly.</p>
 </section>
@@ -461,12 +453,10 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <p class="footer-tagline">Mentorship infrastructure for growing ministries</p>
   </div>
   <ul class="footer-links">
-    <li><a href="#">About</a></li>
-    <li><a href="#">Features</a></li>
-    <li><a href="#">Pricing</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="/privacy">Privacy</a></li>
-    <li><a href="/terms">Terms</a></li>
+    <li><a href="#heart">About</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="https://trydiscipler.com/privacy/">Privacy</a></li>
+    <li><a href="https://trydiscipler.com/contact/">Contact</a></li>
   </ul>
   <p class="footer-copy">&copy; 2025 Discipler LLC</p>
 </footer>
@@ -491,94 +481,33 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
   }
   document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; updateBlobs(); });
   window.addEventListener('scroll', updateBlobs, { passive: true });
-
-  /* ============================================================
-     FALL PILOT EMAIL CAPTURE  ->  Google Sheet
-     ------------------------------------------------------------
-     1. Create a Google Sheet (see the steps you were given).
-     2. Deploy the Apps Script as a Web App ("Anyone" access).
-     3. Paste the /exec URL below, replacing PASTE_YOUR_URL_HERE.
-     That's the ONLY thing you need to change.
-     ============================================================ */
-  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwUH05zV4SG77uCaWvOPfNcwEn0LAow2cLQ9KWOIF0YAGXQxDlNLnfaJezD29feJi0pMg/exec';
-
-  var btn      = document.getElementById('cta-btn');
-  var input    = document.getElementById('cta-email');
-  var form     = document.getElementById('cta-form');
-  var confirm  = document.getElementById('cta-confirm');
-
-  function isValidEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  }
-
-  function submitEmail() {
-    var email = (input.value || '').trim();
-
-    if (!isValidEmail(email)) {
-      input.focus();
-      input.style.outline = '1px solid #e08a8a';
-      btn.textContent = 'Enter a valid email';
-      setTimeout(function () {
-        input.style.outline = 'none';
-        btn.textContent = 'Join the Fall Pilot';
-      }, 1800);
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    fetch(SHEET_ENDPOINT, {
-      method: 'POST',
-      // Plain-text body = a "simple" request, so the browser skips the
-      // CORS preflight that Apps Script can't answer. doPost still
-      // JSON.parses e.postData.contents on the server side.
-      body: JSON.stringify({
-        email:  email,
-        source: 'fall-pilot',
-        page:   location.href
-      })
-    })
-    .then(function (res) { return res.json(); })
-    .then(function (data) {
-      if (data && data.result === 'success') {
-        form.style.display = 'none';
-        confirm.style.display = 'block';
-      } else {
-        throw new Error(data && data.error ? data.error : 'Unknown error');
-      }
-    })
-    .catch(function (err) {
-      console.error('Submit failed:', err);
-      btn.disabled = false;
-      btn.textContent = 'Try again';
-      setTimeout(function () { btn.textContent = 'Join the Fall Pilot'; }, 2500);
-    });
-  }
-
+  var btn = document.getElementById('cta-btn');
   if (btn) {
-    btn.addEventListener('click', submitEmail);
-    input.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') { e.preventDefault(); submitEmail(); }
+    btn.addEventListener('click', function() {
+      var email = document.getElementById('cta-email').value.trim();
+      var subject = encodeURIComponent('New Access Request - Discipler');
+      var body = encodeURIComponent('Someone requested access to Discipler.\n\nTheir email: ' + (email || 'not provided'));
+      var a = document.createElement('a');
+      a.href = 'mailto:contact@trydiscipler.com?subject=' + subject + '&body=' + body;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      document.getElementById('cta-form').style.display = 'none';
+      document.getElementById('cta-confirm').style.display = 'block';
     });
   }
+})();
 
-  // "Join Pilot" nav button -> scroll to the email field and focus it
-  var navJoin = document.getElementById('nav-join');
-  if (navJoin && input) {
-    navJoin.addEventListener('click', function (e) {
-      e.preventDefault();
-      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(function () { input.focus({ preventScroll: true }); }, 600);
-    });
-  }
-
-  // Page loader — hide once everything is ready (safe no-op if absent)
-  window.addEventListener('load', function () {
+  // Page loader — hide once everything is ready
+  window.addEventListener('load', function() {
     var loader = document.getElementById('page-loader');
     if (loader) loader.classList.add('hidden');
   });
-})();
+  // Fallback in case load event already fired
+  if (document.readyState === 'complete') {
+    var loader = document.getElementById('page-loader');
+    if (loader) loader.classList.add('hidden');
+  }
 </script>
 </body>
 </html>
