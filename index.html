@@ -287,19 +287,10 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
   .heart-stats{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr;gap:3rem}
   .steps::before{display:none}
-  .section-problem,.section-features,.section-how,.section-heart{padding:5rem 2rem}
+  .section-problem,.section-features,.section-how,.section-heart{padding:5rem 2rem;background-attachment:scroll}
   footer{flex-direction:column;gap:2rem;text-align:center;padding:3rem 2rem}
   .footer-links{justify-content:center;flex-wrap:wrap}
 }
-
-#page-loader{
-  position:fixed;inset:0;z-index:9999;
-  background:var(--forest);
-  display:flex;align-items:center;justify-content:center;
-  transition:opacity 0.5s ease, visibility 0.5s ease;
-}
-#page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-#page-loader img{height:48px;width:auto;filter:brightness(0) invert(1);opacity:0.8}
 </style>
 </head>
 <body>
@@ -314,7 +305,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <li><a href="#heart">Our Heart</a></li>
     <li><a href="#how">How It Works</a></li>
   </ul>
-  <a href="mailto:contact@trydiscipler.com?subject=Join%20Pilot%20-%20Discipler&body=Hi%2C%0A%0AI%27d%20like%20to%20join%20the%20Fall%20pilot%20for%20Discipler.%0A%0ALooking%20forward%20to%20hearing%20from%20you." class="nav-cta">Join Pilot</a>
+  <a href="apply.html" class="nav-cta">Join Pilot</a>
 </nav>
 
 <section class="hero">
@@ -323,7 +314,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <h1 class="hero-title fade-up fade-up-2">Run discipleship <em>without the chaos.</em></h1>
     <p class="hero-body fade-up fade-up-3">We help ministry leaders who are stuck using spreadsheets and text messages to manage discipleship, so they can spend more time caring for people, without worrying that someone is being forgotten.</p>
     <div class="hero-actions fade-up fade-up-4">
-      <a href="#cta" class="btn-primary">Join Fall Pilot</a>
+      <a href="apply.html" class="btn-primary">Join Fall Pilot</a>
       <a href="#how" class="btn-ghost">See how it works</a>
     </div>
   </div>
@@ -437,14 +428,10 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 </section>
 
 <section class="section-cta" id="cta">
-  <p class="cta-eyebrow">Early access</p>
+  <p class="cta-eyebrow">2026 Fall Launch</p>
   <h2 class="cta-title">Your congregation deserves a <em>discipleship program that grows with you.</em></h2>
   <p class="cta-sub">Join ministry leaders already on the waitlist. We're onboarding churches and campus ministries now.</p>
-  <div class="cta-form" id="cta-form">
-    <input type="email" placeholder="your@ministry.com" id="cta-email">
-    <button type="button" id="cta-btn">Join Pilot</button>
-  </div>
-  <p class="cta-confirm" id="cta-confirm">Thank you for reaching out — we'll be in touch shortly.</p>
+  <a href="apply.html" class="btn-primary">Apply for the Fall Pilot</a>
 </section>
 
 <footer>
@@ -458,11 +445,12 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <li><a href="https://trydiscipler.com/privacy/">Privacy</a></li>
     <li><a href="https://trydiscipler.com/contact/">Contact</a></li>
   </ul>
-  <p class="footer-copy">&copy; 2025 Discipler LLC</p>
+  <p class="footer-copy">&copy; 2026 Discipler LLC</p>
 </footer>
 
 <script>
 (function() {
+  // Cursor-follow glow on feature cards
   var cards = document.querySelectorAll('.feature-card');
   cards.forEach(function(card) {
     var blob = document.createElement('div');
@@ -481,33 +469,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
   }
   document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; updateBlobs(); });
   window.addEventListener('scroll', updateBlobs, { passive: true });
-  var btn = document.getElementById('cta-btn');
-  if (btn) {
-    btn.addEventListener('click', function() {
-      var email = document.getElementById('cta-email').value.trim();
-      var subject = encodeURIComponent('New Access Request - Discipler');
-      var body = encodeURIComponent('Someone requested access to Discipler.\n\nTheir email: ' + (email || 'not provided'));
-      var a = document.createElement('a');
-      a.href = 'mailto:contact@trydiscipler.com?subject=' + subject + '&body=' + body;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      document.getElementById('cta-form').style.display = 'none';
-      document.getElementById('cta-confirm').style.display = 'block';
-    });
-  }
 })();
-
-  // Page loader — hide once everything is ready
-  window.addEventListener('load', function() {
-    var loader = document.getElementById('page-loader');
-    if (loader) loader.classList.add('hidden');
-  });
-  // Fallback in case load event already fired
-  if (document.readyState === 'complete') {
-    var loader = document.getElementById('page-loader');
-    if (loader) loader.classList.add('hidden');
-  }
 </script>
 </body>
 </html>

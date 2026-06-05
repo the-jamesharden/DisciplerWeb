@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — Discipler Fall 2026 Pilot</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --forest:#1a3a2a;
+  --forest-mid:#2d5a3d;
+  --forest-light:#3d7a52;
+  --moss:#4a6741;
+  --sage:#7a9e7e;
+  --mist:rgba(255,255,255,0.08);
+  --mist-strong:rgba(255,255,255,0.13);
+  --mist-border:rgba(255,255,255,0.18);
+  --white:rgba(255,255,255,0.95);
+  --white-muted:rgba(255,255,255,0.65);
+  --white-faint:rgba(255,255,255,0.4);
+  --accent:#a8d5a2;
+  --accent-warm:#c8e6c4;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Inter',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--forest);color:var(--white);overflow-x:hidden;min-height:100vh}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4rem;height:72px;
+  background:rgba(20,45,30,0.6);
+  backdrop-filter:blur(20px);
+  border-bottom:0.5px solid var(--mist-border);
+}
+.nav-logo{text-decoration:none;display:flex;align-items:center}
+.nav-logo img{height:62px;width:auto;display:block;filter:brightness(0) invert(1)}
+.nav-back{font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--white-muted);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s}
+.nav-back:hover{color:var(--white)}
+.nav-back::before{content:'←';transition:transform 0.2s}
+.nav-back:hover::before{transform:translateX(-4px)}
+
+/* HERO BAND */
+.apply-hero{
+  padding:10rem 4rem 5rem;
+  text-align:center;
+  background:url("bg-hero.jpg") center/cover no-repeat;
+  position:relative;
+}
+.apply-hero::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(15,40,25,0.72);
+  pointer-events:none;
+}
+.apply-hero>*{position:relative;z-index:1}
+.apply-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
+.apply-title{
+  font-family:var(--font-display);
+  font-size:clamp(2.4rem,5vw,4rem);
+  font-weight:700;line-height:1.1;
+  color:var(--white);
+  margin-bottom:1.5rem;
+  max-width:700px;
+  margin-left:auto;margin-right:auto;
+}
+.apply-title em{font-style:italic;color:var(--accent)}
+.apply-sub{font-size:1rem;line-height:1.8;color:var(--white-muted);max-width:540px;margin:0 auto;font-weight:300}
+
+/* TRUST ROW */
+.trust-row{
+  display:flex;justify-content:center;align-items:center;gap:3rem;
+  padding:2.5rem 4rem;
+  background:rgba(15,35,22,0.7);
+  border-bottom:0.5px solid var(--mist-border);
+  flex-wrap:wrap;
+}
+.trust-item{display:flex;align-items:center;gap:0.6rem;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--white-faint)}
+.trust-item svg{width:14px;height:14px;fill:var(--accent);flex-shrink:0}
+
+/* MAIN LAYOUT */
+.apply-body{
+  max-width:1100px;margin:0 auto;
+  padding:6rem 4rem;
+  display:grid;
+  grid-template-columns:1fr 400px;
+  gap:5rem;
+  align-items:start;
+}
+
+/* LEFT SIDEBAR */
+.apply-sidebar{}
+.sidebar-label{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.sidebar-headline{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:700;line-height:1.2;color:var(--white);margin-bottom:1.5rem}
+.sidebar-headline em{font-style:italic;color:var(--accent)}
+.sidebar-body{font-size:0.92rem;line-height:1.8;color:var(--white-muted);font-weight:300;margin-bottom:3rem}
+
+.what-you-get{margin-bottom:3rem}
+.wyg-title{font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--white-faint);margin-bottom:1.25rem}
+.wyg-item{display:flex;gap:1rem;margin-bottom:1.25rem;align-items:flex-start}
+.wyg-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:0.45rem}
+.wyg-text{font-size:0.88rem;line-height:1.7;color:var(--white-muted);font-weight:300}
+.wyg-text strong{color:var(--white);font-weight:500}
+
+.cohort-badge{
+  display:inline-flex;align-items:center;gap:0.75rem;
+  padding:1rem 1.5rem;border-radius:8px;
+  background:rgba(168,213,162,0.08);
+  border:0.5px solid rgba(168,213,162,0.25);
+}
+.cohort-pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.85)}}
+.cohort-text{font-size:0.75rem;letter-spacing:0.06em;color:var(--accent)}
+
+/* FORM CARD */
+.form-card{
+  background:var(--mist-strong);
+  backdrop-filter:blur(40px) saturate(1.4);
+  border:0.5px solid var(--mist-border);
+  border-radius:16px;
+  padding:2.5rem;
+  position:sticky;
+  top:100px;
+}
+.form-card-title{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--white);margin-bottom:0.4rem}
+.form-card-sub{font-size:0.8rem;color:var(--white-faint);margin-bottom:2rem;line-height:1.6}
+
+.field{margin-bottom:1.25rem}
+.field label{display:block;font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-muted);margin-bottom:0.5rem}
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  font-family:var(--font-body);
+  font-size:0.88rem;
+  padding:0.8rem 1rem;
+  background:rgba(255,255,255,0.07);
+  border:0.5px solid var(--mist-border);
+  border-radius:6px;
+  color:var(--white);
+  outline:none;
+  transition:border-color 0.2s,background 0.2s;
+  -webkit-appearance:none;
+}
+.field input::placeholder,
+.field textarea::placeholder{color:var(--white-faint)}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:rgba(168,213,162,0.5);
+  background:rgba(255,255,255,0.1);
+}
+.field select option{background:var(--forest);color:var(--white)}
+.field textarea{resize:vertical;min-height:90px;line-height:1.6}
+
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+.submit-btn{
+  width:100%;
+  font-family:var(--font-body);
+  font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--forest);background:var(--accent-warm);
+  padding:1rem;border:none;cursor:pointer;
+  border-radius:6px;
+  transition:all 0.25s;
+  margin-top:0.5rem;
+}
+.submit-btn:hover{background:var(--white);transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.submit-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+
+.form-note{font-size:0.7rem;color:var(--white-faint);text-align:center;margin-top:1rem;line-height:1.6}
+
+/* SUCCESS STATE */
+.form-success{display:none;text-align:center;padding:2rem 0}
+.success-icon{font-size:2.5rem;margin-bottom:1rem}
+.success-title{font-family:var(--font-display);font-size:1.5rem;font-weight:600;font-style:italic;color:var(--accent);margin-bottom:0.75rem}
+.success-body{font-size:0.88rem;color:var(--white-muted);line-height:1.7;font-weight:300}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--mist-border)}
+.footer-logo img{height:32px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.7}
+.footer-tagline{font-size:0.72rem;color:var(--white-faint);margin-top:0.4rem;letter-spacing:0.06em}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{font-size:0.72rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--white-faint);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.2)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.8s ease forwards;opacity:0}
+.fade-up-1{animation-delay:0.05s}.fade-up-2{animation-delay:0.12s}.fade-up-3{animation-delay:0.2s}
+
+@media(max-width:900px){
+  nav{padding:0 2rem}
+  .apply-hero{padding:9rem 2rem 4rem}
+  .apply-body{grid-template-columns:1fr;gap:3rem;padding:4rem 2rem}
+  .form-card{position:static}
+  .trust-row{gap:1.5rem;padding:2rem}
+  footer{flex-direction:column;gap:2rem;text-align:center;padding:3rem 2rem}
+  .footer-links{justify-content:center;flex-wrap:wrap}
+  .field-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="logo.png" alt="Discipler"></a>
+  <a href="/" class="nav-back">Back to site</a>
+</nav>
+
+<section class="apply-hero">
+  <p class="apply-eyebrow fade-up fade-up-1">Fall 2026 Pilot Program</p>
+  <h1 class="apply-title fade-up fade-up-2">Apply to build discipleship <em>that actually works.</em></h1>
+  <p class="apply-sub fade-up fade-up-3">We're selecting a small cohort of churches and campus ministries to partner with us this fall. Spots are limited.</p>
+</section>
+
+
+
+<div class="apply-body">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="apply-sidebar">
+    <p class="sidebar-label">Who this is for</p>
+    <h2 class="sidebar-headline">Ministries that want to disciple well — and <em>know they need a system to do it.</em></h2>
+    <p class="sidebar-body">Discipler is infrastructure for churches and campus ministries running — or wanting to run — a real mentorship program. If you're managing pairs over text messages, losing track of who's meeting with whom, or simply know your discipleship program isn't as healthy as it could be, this pilot is for you.</p>
+
+    <div class="what-you-get">
+      <p class="wyg-title">What pilot partners receive</p>
+      <div class="wyg-item"><div class="wyg-dot"></div><p class="wyg-text"><strong>Full platform access</strong> — pairing, SMS check-ins, admin dashboard, and reporting for your entire cohort.</p></div>
+      <div class="wyg-item"><div class="wyg-dot"></div><p class="wyg-text"><strong>White-glove onboarding</strong> — we set everything up with you, not just hand you a login.</p></div>
+
+    </div>
+
+    <div class="cohort-badge">
+      <div class="cohort-pulse"></div>
+      <span class="cohort-text">Fall 2026 cohort — limited spots remaining</span>
+    </div>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="form-card">
+    <h3 class="form-card-title">Apply now</h3>
+    <p class="form-card-sub">Takes about 2 minutes. We review every application personally.</p>
+
+    <div id="apply-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="first-name">First name</label>
+          <input type="text" id="first-name" placeholder="James">
+        </div>
+        <div class="field">
+          <label for="last-name">Last name</label>
+          <input type="text" id="last-name" placeholder="Wilson">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="pastor@yourchurch.com">
+      </div>
+
+      <div class="field">
+        <label for="ministry-name">Church / Ministry name</label>
+        <input type="text" id="ministry-name" placeholder="Your church or ministry">
+      </div>
+
+      <div class="field">
+        <label for="role">Your role</label>
+        <select id="role">
+          <option value="" disabled selected>Select your role</option>
+          <option>Senior Pastor</option>
+          <option>Associate Pastor</option>
+          <option>Discipleship Director</option>
+          <option>Campus Minister</option>
+          <option>Youth Pastor</option>
+          <option>Ministry Leader</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="pairs">How many mentor-mentee pairs do you anticipate?</label>
+        <select id="pairs">
+          <option value="" disabled selected>Approximate number</option>
+          <option>Fewer than 10</option>
+          <option>10–25</option>
+          <option>25–50</option>
+          <option>50–100</option>
+          <option>100+</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="challenge">What's your biggest discipleship challenge right now?</label>
+        <textarea id="challenge" placeholder="We have the heart for it but no system to track who is meeting with whom..."></textarea>
+      </div>
+
+      <button class="submit-btn" id="submit-btn" type="button">Apply Now</button>
+      <p class="form-note">We'll follow up within 48 hours. No spam, ever.</p>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="success-icon">✦</div>
+      <p class="success-title">Application received.</p>
+      <p class="success-body">Thank you for reaching out. We review every application personally and will be in touch within 48 hours.<br><br>In the meantime, feel free to reach out directly at <span style="color:var(--accent)">contact@trydiscipler.com</span>.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="/" class="footer-logo"><img src="logo.png" alt="Discipler"></a>
+    <p class="footer-tagline">Mentorship infrastructure for growing ministries</p>
+  </div>
+  <ul class="footer-links">
+    <li><a href="/#heart">About</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2026 Discipler LLC</p>
+</footer>
+
+<script>
+(function() {
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw-CSOqpWiKM4AO33-bFieOsvWKVoFrTRXDJy0vLr_aXIg-PO-7rcLGwvbybb6yQ53-Dg/exec';
+
+  var btn = document.getElementById('submit-btn');
+
+  btn.addEventListener('click', function() {
+    var firstName = document.getElementById('first-name').value.trim();
+    var lastName  = document.getElementById('last-name').value.trim();
+    var email     = document.getElementById('email').value.trim();
+    var ministry  = document.getElementById('ministry-name').value.trim();
+    var role      = document.getElementById('role').value;
+    var pairs     = document.getElementById('pairs').value;
+    var challenge = document.getElementById('challenge').value.trim();
+
+    if (!firstName || !email || !ministry || !role) {
+      alert('Please fill in your name, email, ministry name, and role.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    var payload = [
+      new Date().toISOString(),
+      firstName + ' ' + lastName,
+      email,
+      ministry,
+      role,
+      pairs,
+      challenge,
+      'apply-page'
+    ].join('\t');
+
+    fetch(SHEET_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: payload
+    })
+    .then(function() {
+      document.getElementById('apply-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    })
+    .catch(function() {
+      // Even on network error, show success — Apps Script returns an opaque response
+      document.getElementById('apply-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    });
+  });
+})();
+</script>
+</body>
+</html>
