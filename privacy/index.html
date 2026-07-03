@@ -43,7 +43,7 @@ ul.items li::before{content:'';position:absolute;left:0;top:0.6em;width:4px;heig
 footer{background:rgba(10,25,16,0.9);padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--mist-border)}
 footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.6}
 .footer-tagline{font-size:0.65rem;color:var(--white-faint);margin-top:0.25rem}
-.footer-links{display:flex;gap:1.5rem;list-style:none}
+.footer-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
 .footer-links a{font-size:0.65rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--white-faint);text-decoration:none;transition:color 0.2s}
 .footer-links a:hover{color:var(--accent)}
 .footer-copy{font-size:0.63rem;color:rgba(255,255,255,0.2)}
@@ -58,7 +58,7 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
 <body>
 
 <nav>
-  <a href="/"><img src="../logo.png" alt="Discipler"></a>
+  <a href="/" class="nav-logo"><img src="/logo.png" alt="Discipler"></a>
   <ul class="nav-links">
     <li><a href="/#problems">The Problem</a></li>
     <li><a href="/#features">Features</a></li>
@@ -71,7 +71,7 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
 <div class="page-header">
   <p class="eyebrow">Legal</p>
   <h1 class="page-title">Privacy Policy</h1>
-  <p class="page-date">Effective Date: [Insert Date]</p>
+  <p class="page-date">Effective Date: July 3, 2026</p>
 </div>
 
 <div class="doc">
@@ -84,10 +84,11 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
     <p class="section-num">01</p>
     <h2 class="section-title">What we collect</h2>
     <ul class="items">
-      <li>Name, email, and phone number</li>
+      <li>Name, email address, and phone number</li>
       <li>Availability and mentorship preferences</li>
-      <li>Basic profile information (interests, goals, etc.)</li>
-      <li>Mentorship activity (meeting check-ins, responses)</li>
+      <li>Basic profile information, such as interests, goals, and ministry participation</li>
+      <li>Mentorship activity, including meeting check-ins, responses, and follow-up notes</li>
+      <li>Basic technical information needed to operate and improve the platform</li>
     </ul>
   </div>
 
@@ -96,9 +97,9 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
     <h2 class="section-title">How we use your information</h2>
     <ul class="items">
       <li>Match mentors and mentees</li>
-      <li>Send reminders and check-ins (including SMS)</li>
-      <li>Help ministry leaders understand engagement</li>
-      <li>Improve the platform experience</li>
+      <li>Send reminders, check-ins, and follow-ups, including SMS messages</li>
+      <li>Help ministry leaders understand engagement and program health</li>
+      <li>Support, operate, secure, and improve the Discipler platform</li>
     </ul>
   </div>
 
@@ -106,9 +107,15 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
     <p class="section-num">03</p>
     <h2 class="section-title">SMS communication</h2>
     <ul class="items">
-      <li>You may receive text messages related to mentorship</li>
-      <li>Examples: meeting reminders, check-ins, follow-ups</li>
-      <li>You only receive messages if you provide your number and opt in</li>
+      <li>When you provide your mobile phone number and opt in, Discipler may send text messages related to your church or ministry mentorship program.</li>
+      <li>Messages may include meeting reminders, weekly check-ins, follow-up questions, and program coordination.</li>
+      <li>Message frequency varies but is typically 1–2 messages per week during active mentorship programs (up to approximately 8 messages per month).</li>
+      <li>Message and data rates may apply.</li>
+      <li>Your consent to receive text messages is not a condition of any purchase or of participation in your mentorship program.</li>
+      <li>You can opt out at any time by replying STOP.</li>
+      <li>You can request help by replying HELP or by contacting us at support@trydiscipler.com.</li>
+      <li>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</li>
+      <li>Text messaging originator opt-in data and consent will not be shared with any third parties.</li>
     </ul>
   </div>
 
@@ -116,9 +123,9 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
     <p class="section-num">04</p>
     <h2 class="section-title">Who sees your information</h2>
     <ul class="items">
-      <li>Your ministry leaders and administrators</li>
-      <li>Discipler (to operate the platform)</li>
-      <li>Trusted service providers (like SMS delivery)</li>
+      <li>Your church or ministry leaders and administrators, as needed to manage the mentorship program</li>
+      <li>Discipler, as needed to operate, support, and improve the platform</li>
+      <li>Trusted service providers, such as SMS delivery providers, only as needed to provide the service</li>
     </ul>
   </div>
 
@@ -128,7 +135,8 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
     <ul class="items">
       <li>We do not sell your data</li>
       <li>We do not send spam</li>
-      <li>We do not share your information outside your ministry context</li>
+      <li>We do not share your information outside your church or ministry context except as needed to operate the platform</li>
+      <li>We do not share mobile numbers, SMS opt-in data, or messaging consent for marketing or promotional purposes</li>
     </ul>
   </div>
 
@@ -137,7 +145,18 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
     <h2 class="section-title">Your control</h2>
     <ul class="items">
       <li>You can request to update or delete your information at any time</li>
-      <li>You can opt out of messages at any time</li>
+      <li>You can opt out of SMS messages at any time by replying STOP</li>
+      <li>You can contact your church or ministry administrator with questions about your mentorship program information</li>
+      <li>You can contact Discipler at support@trydiscipler.com with privacy questions</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="section-num">07</p>
+    <h2 class="section-title">Data security</h2>
+    <ul class="items">
+      <li>We use reasonable safeguards to protect information submitted through Discipler</li>
+      <li>No system can guarantee perfect security, but we work to protect information from unauthorized access, misuse, or disclosure</li>
     </ul>
   </div>
 
@@ -146,7 +165,7 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
     <h2 class="section-title">Questions?</h2>
     <p class="body">Reach out directly with any questions about this policy or your data.</p>
     <div class="contact-link">
-      <a href="/cdn-cgi/l/email-protection#99faf6f7edf8faedd9edebe0fdf0eafaf0e9f5fcebb7faf6f4"><span class="__cf_email__" data-cfemail="7e1d11100a1f1d0a3e0a0c071a170d1d170e121b0c501d1113">[email&#160;protected]</span></a>
+      <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a>
     </div>
   </div>
 
@@ -154,11 +173,20 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
 
 <footer>
   <div>
-    <a href="/"><img src="../logo.png" alt="Discipler"></a>
+    <a href="/"><img src="/logo.png" alt="Discipler"></a>
     <p class="footer-tagline">Mentorship infrastructure for growing ministries</p>
   </div>
+
   <ul class="footer-links">
-    <li><a href="#">About</a></li>
-    <li><a href="#">Features</a></li>
-    <li><a href="#">Pricing</a></li>
-    <li><a h
+    <li><a href="/#problems">About</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#cta">Request Access</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+    <li><a href="/terms.html">Terms</a></li>
+  </ul>
+
+  <p class="footer-copy">&copy; 2026 Discipler. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
