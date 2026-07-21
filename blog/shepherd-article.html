@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shepherd Cannot Pursue What He Cannot See — Discipler Blog</title>
+<meta name="description" content="Luke 15's shepherd left the ninety-nine to pursue one. But the search only begins after a quieter discipline: he counted, and he noticed one was missing.">
+
+<!-- Libre Franklin: full weight range so the display stays bold and body stays light.
+     Falls back to system sans if the web font fails. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     DISCIPLER BLOG — design tokens
+     Two-tone system: cream + forest green. No gold.
+     ============================================================ */
+  :root {
+    --green: #143520;          /* forest green — headings, accents, fills */
+    --green-soft: #1d4a2e;     /* hover / lighter green */
+    --cream: #F7F4EA;          /* page background */
+    --cream-deep: #EFEADB;     /* cards, pull quotes, code-adjacent blocks */
+    --ink: #1e2a22;            /* body text: near-green ink, not pure black */
+    --ink-muted: #5a6a5f;      /* meta text, captions */
+    --rule: rgba(20, 53, 32, 0.18);  /* hairline rules */
+    --font: "Libre Franklin", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --measure: 42rem;          /* comfortable reading width */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    font-family: var(--font);
+    background: var(--cream);
+    color: var(--ink);
+    font-weight: 300;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--green); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+  }
+
+  /* ============ Site header ============ */
+  .site-header {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    color: var(--green);
+    text-decoration: none;
+  }
+  .site-nav { display: flex; gap: 1.75rem; align-items: center; }
+  .site-nav a {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+  .site-nav a:hover { color: var(--green); }
+  .nav-cta {
+    background: var(--green);
+    color: var(--cream) !important;
+    padding: 0.55rem 1.15rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .nav-cta:hover { background: var(--green-soft); }
+
+  .header-rule {
+    max-width: 72rem;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ============ Article header ============ */
+  .post-header {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 2.5rem;
+    text-align: left;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 1.25rem;
+  }
+  .post-title {
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    color: var(--green);
+    margin-bottom: 1.25rem;
+    text-wrap: balance;
+  }
+  .post-dek {
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 36rem;
+    margin-bottom: 2rem;
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+  }
+  .post-meta .dot { color: var(--rule); }
+
+  .post-header-rule {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .post-header-rule hr {
+    border: none;
+    border-top: 2px solid var(--green);
+    width: 4rem;
+  }
+
+  /* ============ Article body ============ */
+  .post-body {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  .post-body p { margin-bottom: 1.5rem; }
+  .post-body strong { font-weight: 600; }
+
+  .post-body h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--green);
+    margin: 3rem 0 1rem;
+  }
+  .post-body h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--green);
+    margin: 2.25rem 0 0.75rem;
+  }
+
+  .post-body ul, .post-body ol {
+    margin: 0 0 1.5rem 1.4rem;
+  }
+  .post-body li { margin-bottom: 0.6rem; }
+  .post-body li::marker { color: var(--green); font-weight: 600; }
+
+  /* Pull quote — the one indulgence. Green bar, deep-cream field. */
+  .pull-quote {
+    background: var(--cream-deep);
+    border-left: 4px solid var(--green);
+    padding: 1.75rem 2rem;
+    margin: 2.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .pull-quote p {
+    font-size: 1.35rem;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--green);
+    margin: 0;
+  }
+
+  /* Inline callout box */
+  .callout {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.5rem 1.75rem;
+    margin: 2.5rem 0;
+  }
+  .callout .callout-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .callout p { margin: 0; font-size: 1.05rem; }
+
+  /* ============ CTA band ============ */
+  .cta-band {
+    background: var(--green);
+    color: var(--cream);
+    padding: 4rem 1.5rem;
+  }
+  .cta-inner {
+    max-width: var(--measure);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .cta-band h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.9rem;
+    text-wrap: balance;
+  }
+  .cta-band p {
+    font-weight: 300;
+    font-size: 1.1rem;
+    max-width: 32rem;
+    margin: 0 auto 1.75rem;
+    opacity: 0.92;
+  }
+  .cta-button {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--green);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 120ms ease, background 120ms ease;
+  }
+  .cta-button:hover { background: #fffdf6; transform: translateY(-1px); }
+
+  /* ============ More posts ============ */
+  .more-posts {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 4rem;
+  }
+  .more-posts .eyebrow { margin-bottom: 1.5rem; }
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.25rem;
+    max-width: 24rem;
+  }
+  .post-card {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.5rem 1.5rem 1.4rem;
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+    transition: background 120ms ease, border-color 120ms ease;
+  }
+  .post-card:hover {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .post-card:hover .card-title,
+  .post-card:hover .card-tag,
+  .post-card:hover .card-read { color: var(--cream); }
+  .card-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--green);
+    margin-bottom: 0.9rem;
+  }
+  .card-read {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+  }
+
+  /* ============ Footer ============ */
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 1.5rem;
+  }
+  .footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+  }
+  .footer-inner a { color: var(--ink-muted); text-decoration: none; }
+  .footer-inner a:hover { color: var(--green); }
+  .footer-links { display: flex; gap: 1.5rem; }
+
+  @media (max-width: 600px) {
+    .site-nav a:not(.nav-cta) { display: none; }
+    .post-header { padding-top: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= SITE HEADER ================= -->
+<header class="site-header">
+  <a class="logo" href="https://trydiscipler.com">Discipler</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="https://trydiscipler.com">Home</a>
+    <a href="#">Blog</a>
+    <a class="nav-cta" href="https://trydiscipler.com">Book a Demo</a>
+  </nav>
+</header>
+<hr class="header-rule">
+
+<!-- ================= ARTICLE ================= -->
+<article>
+  <header class="post-header">
+    <span class="eyebrow">Discipleship &middot; Biblical Foundations</span>
+    <h1 class="post-title">The shepherd cannot pursue what he cannot see</h1>
+    <p class="post-dek">Luke 15&rsquo;s shepherd left the ninety-nine to pursue one. But the search only begins after a quieter discipline &mdash; he counted, and he noticed one was missing.</p>
+    <div class="post-meta">
+      <span>James Harden</span>
+      <span class="dot">&bull;</span>
+      <span>July 2026</span>
+      <span class="dot">&bull;</span>
+      <span>5 min read</span>
+    </div>
+  </header>
+
+  <div class="post-header-rule"><hr></div>
+
+  <div class="post-body">
+    <p>Luke 15 is a favorite passage of many pastors, as it speaks of a shepherd with a hundred sheep and, when one wanders, the shepherd leaves the ninety-nine to search for the lost sheep until he finds it. When the shepherd finds the lost sheep, he rejoices and tenderly carries it back home on his shoulders. Usually we tend to focus on the pursuit, appropriately so, because it is one of Scripture&rsquo;s most caring and gentle images of God.</p>
+
+    <p>This passage contains an important yet unspoken prerequisite, which occurs just prior to the search beginning. That is, the good shepherd knows that one sheep was missing. When there are one hundred sheep on a hillside, it is not obvious or self-intuitive that one went missing. To know that one is missing out of the large flock, the shepherd had to have been continually counting to be alerted to this fact.</p>
+
+    <h2>The parable assumes a count</h2>
+
+    <p>This parable begins with a simple calculation, stating that there were one hundred sheep with one lost, leaving ninety-nine. For the shepherd to notice immediately that something has gone wrong, he had to continually count. Close attention and monitoring caused the shepherd to notice something was wrong. Only then does the shepherd begin to pursue the lost sheep.</p>
+
+    <p>Similarly, a church follows this pattern. Rarely does a person leave the church suddenly. Because people drift away slowly, they may not be immediately missed. It begins with missing a Sunday here and there, quietly dropping out of a small group, or getting too busy to meet with a discipling partner regularly.</p>
+
+    <div class="pull-quote">
+      <p>The question for church leadership is not whether anyone in your flock will wander, but whether anyone really notices and pursues them.</p>
+    </div>
+
+    <h2>&ldquo;Know well the condition of your flocks&rdquo;</h2>
+
+    <p>According to Scripture, this attention to flocks is not optional. Proverbs 27:23 commands us to be sure that we know the condition of your flocks. The Hebrew origin of this idea of &ldquo;knowing&rdquo; is that we must have a deliberate, intimate, and sustained knowledge, which comes from looking and searching, not just assuming.</p>
+
+    <p>In the Biblical accounts, shepherds counted sheep as each one passed under a rod. Using this system, shepherds could inspect the sheep for limps, check each one for parasites, and know which one was pregnant or weak. Jesus tells us that the good shepherd calls his own sheep by name. This level of attention and specificity can only exist where the shepherd spends time with the sheep.</p>
+
+    <p>The very next verse reveals that what we do not watch will eventually be lost, as nothing endures on its own. Specifically, &ldquo;for riches do not endure forever, and a crown is not secure for all generations&rdquo; (Prov. 27:24). For anything to endure over generations, there must be good stewardship. The shepherd&rsquo;s watchfulness is a discipline of love. Church leaders do not watch to criticize or find fault, but to love and help preserve the treasure of faith.</p>
+
+    <h2>The shepherd without glasses</h2>
+
+    <p>Let&rsquo;s paint a different picture of a shepherd who also loves his flock dearly, and he would do everything a good shepherd would do. He sleeps in the field with them, he fights off the wolves, and he carries weak lambs on his shoulders. However, he has terrible eyesight. Because of his nearsightedness, he does not see the ewe limping, nor does he see the lamb slip over a cliff&rsquo;s edge, the wolf in the distance is only a blur. This shepherd, despite the goodness of his heart, knows that the flock has scattered only when it is too late.</p>
+
+    <p>While his love is not the problem, his sight is. The point of this story is not to condemn the shepherd, but to help him find a solution. Glasses or corrective lenses would not be considered cheating or less spiritual, but a helpful and needed solution to fulfill his duties. For that matter, a pair of binoculars would prove useful.</p>
+
+    <p>Every pastor is this shepherd in one way or another. Each person has a certain range of natural abilities. Humans can closely follow approximately a dozen or so relationships, but when a person is required to keep up with the details of one hundred, five hundred, or a thousand relationships, this is out of any human&rsquo;s capability. This limitation is not a character flaw, but a limitation nonetheless that can be accommodated. Finding a solution to this limitation is one of the most loving things a shepherd can do.</p>
+
+    <h2>Using systems is not inorganic or unspiritual</h2>
+
+    <p>Some may throw up the objection that &ldquo;discipleship should be organic and Spirit-led because systems feel corporate and dashboards feel like surveillance.&rdquo; This concern should be taken seriously because formation should never be reduced to simply data entry.</p>
+
+    <p>The Scripture provides insight as to what should happen when God&rsquo;s people outgrow one leader&rsquo;s sight or personal ability. In Exodus, when Jethro watched Moses overcome by a crowd, he instructs him to build a structure of leaders in incremental numbers so that Moses does not wear out and so that everyone can hear. Similarly, in Acts 6, when certain widows were overlooked in daily food distribution, a system was established with defined responsibilities to make sure that no one gets missed again. Yet another example of effective system implementation can be found when Nehemiah rebuilds the city using a roster, gate assignments, and family records.</p>
+
+    <p>Scripture is replete with examples of how systems helped ministries. A recurring pattern appears that shows that when a flock grows, faithful leaders build structures so that love reaches each person, especially those who are the easiest to overlook. The structure reinforces the shepherd&rsquo;s heart and extends his vision by making possible losses visible.</p>
+
+    <h2>Visibility is pastoral stewardship</h2>
+
+    <p>Hebrews commands leaders to keep watch over souls as those who will give an account. The phrase, &ldquo;keep watch,&rdquo; is critical, in that, we cannot watch over what we cannot see. A pastor with no sight or limited visibility is equally accountable and responsible, regardless of the limitation.</p>
+
+    <div class="callout">
+      <span class="callout-label">The core idea</span>
+      <p>Visibility is the difference between finding out in December that a young man stopped meeting with his mentor in April, and noticing two weeks out &mdash; while a text, a call, or a coffee can still restore the relationship.</p>
+    </div>
+
+    <p>First of all, it is important to note that visibility is not surveillance or being nosy. Instead, visibility is the difference between finding out in December that a young man stopped meeting with his mentor in April versus noticing two weeks out, at which point a text, phone call, or meeting over a coffee could reestablish this relationship. In other words, clear visibility is the difference between noticing a wandering sheep before nightfall and noticing the lost sheep months later in the winter.</p>
+
+    <p>This conviction is the foundation for my decision to create Discipler. The Discipler dashboard allows a coordinator to easily see which discipleship relationships are thriving and which ones have gone silent. Similar to counting the flock at dusk, this provides a modern approach for leadership to pursue lost sheep while they are still close and restore the flock.</p>
+  </div>
+</article>
+
+<!-- ================= CTA ================= -->
+<section class="cta-band">
+  <div class="cta-inner">
+    <h2>See every pair. Miss nothing.</h2>
+    <p>Discipler gives coordinators SMS check-ins, stalled-pair flags, and a live dashboard &mdash; so no relationship fades in silence.</p>
+    <a class="cta-button" href="https://trydiscipler.com">Book a Demo</a>
+  </div>
+</section>
+
+<!-- ================= MORE POSTS ================= -->
+<section class="more-posts" aria-label="More from the blog">
+  <span class="eyebrow">More from the blog</span>
+  <div class="post-grid">
+    <a class="post-card" href="paul-article.html">
+      <span class="card-tag">Biblical Foundations</span>
+      <span class="card-title">Paul did not merely teach crowds</span>
+      <span class="card-read">6 min read</span>
+    </a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>&copy; 2026 Discipler LLC</span>
+    <div class="footer-links">
+      <a href="https://trydiscipler.com/privacy">Privacy</a>
+      <a href="https://trydiscipler.com/terms">Terms</a>
+      <a href="mailto:james@trydiscipler.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
