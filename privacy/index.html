@@ -35,6 +35,8 @@ p.body{font-size:0.85rem;line-height:1.8;color:var(--white-muted);font-weight:30
 ul.items{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.35rem}
 ul.items li{font-size:0.83rem;line-height:1.65;color:var(--white-muted);font-weight:300;padding-left:1rem;position:relative}
 ul.items li::before{content:'';position:absolute;left:0;top:0.6em;width:4px;height:4px;border-radius:50%;background:var(--accent);opacity:0.55}
+ul.items li a,p.body a{color:var(--accent);text-decoration:none;border-bottom:0.5px solid rgba(168,213,162,0.4);transition:color 0.2s,border-color 0.2s}
+ul.items li a:hover,p.body a:hover{color:var(--white);border-color:var(--white)}
 .block{padding:1rem 1.25rem;border-radius:6px;background:rgba(168,213,162,0.07);border:0.5px solid rgba(168,213,162,0.2);display:flex;flex-direction:column;gap:0.35rem}
 .block p{font-size:0.83rem;line-height:1.65;color:var(--white-muted);font-weight:300}
 .contact-link{display:inline-flex;margin-top:0.75rem;padding:0.6rem 1.1rem;border-radius:5px;background:rgba(255,255,255,0.05);border:0.5px solid var(--mist-border)}
@@ -71,7 +73,7 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
 <div class="page-header">
   <p class="eyebrow">Legal</p>
   <h1 class="page-title">Privacy Policy</h1>
-  <p class="page-date">Effective Date: July 3, 2026</p>
+  <p class="page-date">Effective Date: July 23, 2026</p>
 </div>
 
 <div class="doc">
@@ -108,11 +110,13 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
     <h2 class="section-title">SMS communication</h2>
     <ul class="items">
       <li>When you provide your mobile phone number and opt in, Discipler may send text messages related to your church or ministry mentorship program.</li>
+      <li>You opt in through your ministry's mentorship intake form, where you enter your own mobile number and check a consent box that is unchecked by default. A sample of that form is available at <a href="/sms-opt-in.html">trydiscipler.com/sms-opt-in</a>.</li>
+      <li>Messages are sent by Discipler LLC on behalf of the church or ministry running your mentorship program.</li>
       <li>Messages may include meeting reminders, weekly check-ins, follow-up questions, and program coordination.</li>
-      <li>Message frequency varies but is typically 1–2 messages per week during active mentorship programs (up to approximately 8 messages per month).</li>
+      <li>Message frequency varies but is typically 3–5 messages per week during active mentorship programs (up to approximately 24 messages per month).</li>
       <li>Message and data rates may apply.</li>
       <li>Your consent to receive text messages is not a condition of any purchase or of participation in your mentorship program.</li>
-      <li>You can opt out at any time by replying STOP.</li>
+      <li>You can opt out at any time by replying STOP. You can opt back in by replying START.</li>
       <li>You can request help by replying HELP or by contacting us at support@trydiscipler.com.</li>
       <li>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</li>
       <li>Text messaging originator opt-in data and consent will not be shared with any third parties.</li>
@@ -181,6 +185,7 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
     <li><a href="/#problems">About</a></li>
     <li><a href="/#features">Features</a></li>
     <li><a href="/#cta">Request Access</a></li>
+    <li><a href="/sms-opt-in.html">SMS Opt-In</a></li>
     <li><a href="/privacy.html">Privacy</a></li>
     <li><a href="/terms.html">Terms</a></li>
   </ul>
