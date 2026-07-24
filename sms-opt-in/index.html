@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMS Opt-In — Discipler</title>
+<meta name="description" content="Sample of the SMS consent section that appears on the mentorship intake form each ministry provides to its participants through Discipler.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --forest:#1a3a2a;--mist-border:rgba(255,255,255,0.18);
+  --white:rgba(255,255,255,0.95);--white-muted:rgba(255,255,255,0.65);--white-faint:rgba(255,255,255,0.4);
+  --accent:#a8d5a2;--accent-warm:#c8e6c4;
+  --font-display:'Playfair Display',Georgia,serif;--font-body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--forest);color:var(--white);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:64px;background:rgba(20,45,30,0.7);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--mist-border)}
+.nav-logo img{height:20px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.7}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);background:var(--accent-warm);padding:0.55rem 1.25rem;text-decoration:none;border-radius:2px;transition:background 0.2s}
+.nav-cta:hover{background:var(--white)}
+.page-header{padding:6rem 4rem 2.5rem;border-bottom:0.5px solid var(--mist-border)}
+.eyebrow{font-size:0.65rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem}
+.page-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.1;color:var(--white);margin-bottom:0.4rem}
+.page-date{font-size:0.7rem;color:var(--white-faint)}
+.doc{max-width:680px;margin:0 auto;padding:3rem 4rem 5rem}
+.section{padding:1.5rem 0;border-bottom:0.5px solid var(--mist-border)}
+.section:last-child{border-bottom:none}
+.section-num{font-size:0.62rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.35rem}
+.section-title{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--white);margin-bottom:0.75rem}
+p.body{font-size:0.85rem;line-height:1.8;color:var(--white-muted);font-weight:300}
+p.body + p.body{margin-top:0.9rem}
+ul.items{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.35rem}
+ul.items li{font-size:0.83rem;line-height:1.65;color:var(--white-muted);font-weight:300;padding-left:1rem;position:relative}
+ul.items li::before{content:'';position:absolute;left:0;top:0.6em;width:4px;height:4px;border-radius:50%;background:var(--accent);opacity:0.55}
+ul.items li a,p.body a,.form-consent a{color:var(--accent);text-decoration:none;border-bottom:0.5px solid rgba(168,213,162,0.4);transition:color 0.2s,border-color 0.2s}
+ul.items li a:hover,p.body a:hover,.form-consent a:hover{color:var(--white);border-color:var(--white)}
+.note{padding:0.9rem 1.15rem;border-radius:6px;background:rgba(168,213,162,0.07);border:0.5px solid rgba(168,213,162,0.2)}
+.note p{font-size:0.78rem;line-height:1.7;color:var(--white-muted);font-weight:300}
+
+/* --- sample form replica --- */
+.form-card{margin-top:0.25rem;padding:1.6rem;border-radius:8px;background:rgba(255,255,255,0.04);border:0.5px solid var(--mist-border)}
+.form-card-label{font-size:0.6rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--white-faint);margin-bottom:1.25rem;display:block}
+.field{margin-bottom:1.25rem}
+.field-label{display:block;font-size:0.7rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--white-muted);margin-bottom:0.5rem}
+.field input[type="text"],.field input[type="tel"]{width:100%;font-family:var(--font-body);font-size:0.87rem;font-weight:300;color:var(--white);background:rgba(0,0,0,0.18);border:0.5px solid var(--mist-border);border-radius:5px;padding:0.7rem 0.85rem;outline:none}
+.field input::placeholder{color:rgba(255,255,255,0.28)}
+.field input:focus-visible{border-color:var(--accent);box-shadow:0 0 0 2px rgba(168,213,162,0.25)}
+.consent-row{display:flex;gap:0.75rem;align-items:flex-start;padding-top:0.35rem}
+.consent-row input[type="checkbox"]{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:17px;height:17px;margin-top:0.15rem;border:0.5px solid rgba(255,255,255,0.45);border-radius:3px;background:rgba(0,0,0,0.18);cursor:pointer;position:relative;transition:border-color 0.2s,background 0.2s}
+.consent-row input[type="checkbox"]:hover{border-color:var(--accent)}
+.consent-row input[type="checkbox"]:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(168,213,162,0.25)}
+.consent-row input[type="checkbox"]:checked{background:var(--accent-warm);border-color:var(--accent-warm)}
+.consent-row input[type="checkbox"]:checked::after{content:'';position:absolute;left:5px;top:1px;width:4px;height:9px;border:solid var(--forest);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.form-consent{font-size:0.8rem;line-height:1.7;color:var(--white-muted);font-weight:300;cursor:pointer}
+.form-footnote{margin-top:1.25rem;padding-top:1.1rem;border-top:0.5px solid var(--mist-border);font-size:0.72rem;line-height:1.7;color:var(--white-faint);font-weight:300}
+.form-submit{margin-top:1.25rem;font-family:var(--font-body);font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);background:var(--accent-warm);border:none;padding:0.7rem 1.4rem;border-radius:3px;cursor:not-allowed;opacity:0.55}
+
+/* --- message table --- */
+.msg-list{display:flex;flex-direction:column;gap:0.75rem}
+.msg{padding:0.85rem 1.05rem;border-radius:6px;background:rgba(0,0,0,0.18);border:0.5px solid var(--mist-border)}
+.msg-kind{font-size:0.6rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem}
+.msg-text{font-size:0.8rem;line-height:1.65;color:var(--white-muted);font-weight:300}
+.contact-link{display:inline-flex;margin-top:0.75rem;padding:0.6rem 1.1rem;border-radius:5px;background:rgba(255,255,255,0.05);border:0.5px solid var(--mist-border)}
+.contact-link a{color:var(--accent);text-decoration:none;font-size:0.83rem;transition:color 0.2s}
+.contact-link a:hover{color:var(--white)}
+footer{background:rgba(10,25,16,0.9);padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--mist-border)}
+footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.6}
+.footer-tagline{font-size:0.65rem;color:var(--white-faint);margin-top:0.25rem}
+.footer-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:0.65rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--white-faint);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{font-size:0.63rem;color:rgba(255,255,255,0.2)}
+@media(max-width:900px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .page-header{padding:5rem 1.5rem 2rem}.doc{padding:2rem 1.5rem 4rem}
+  .form-card{padding:1.25rem}
+  footer{flex-direction:column;gap:1.25rem;text-align:center;padding:2rem 1.5rem}
+  .footer-links{justify-content:center;flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="/logo.png" alt="Discipler"></a>
+  <ul class="nav-links">
+    <li><a href="/#problems">The Problem</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#heart">Our Heart</a></li>
+  </ul>
+  <a href="/#cta" class="nav-cta">Request Access</a>
+</nav>
+
+<div class="page-header">
+  <p class="eyebrow">SMS Program</p>
+  <h1 class="page-title">Mentorship Check-In Messages</h1>
+  <p class="page-date">Sample opt-in form &middot; Last updated July 23, 2026</p>
+</div>
+
+<div class="doc">
+
+  <div class="section">
+    <p class="body">Discipler LLC sends SMS mentorship check-ins on behalf of churches and campus ministries that run discipleship programs. Only people enrolled as participants in one of those programs receive messages, and only after they opt in themselves.</p>
+    <p class="body">This page shows the exact SMS consent section that appears on the mentorship intake form each ministry provides to its participants through Discipler. The live forms are identical except for the ministry name.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">01</p>
+    <h2 class="section-title">The opt-in form</h2>
+
+    <div class="form-card">
+      <span class="form-card-label">Sample &mdash; not a live enrollment form</span>
+
+      <div class="field">
+        <label class="field-label" for="sample-name">Full name</label>
+        <input type="text" id="sample-name" placeholder="Jordan Ellis" disabled>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="sample-phone">Mobile phone number</label>
+        <input type="tel" id="sample-phone" placeholder="(555) 123-4567" disabled>
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" id="sample-consent" aria-describedby="sample-consent-text">
+        <label class="form-consent" id="sample-consent-text" for="sample-consent">
+          I agree to receive recurring SMS mentorship check-in messages from my ministry via Discipler at the number provided, approximately 3&ndash;5 messages per week. Message and data rates may apply. Consent is not a condition of participation in the mentorship program. Reply STOP to opt out, HELP for help. See our <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Service</a>.
+        </label>
+      </div>
+
+      <p class="form-footnote">
+        This box is unchecked by default and is separate from every other field on the form. Messages are sent by Discipler LLC on behalf of your ministry. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Questions: <a href="mailto:support@trydiscipler.com" style="color:var(--accent);text-decoration:none">support@trydiscipler.com</a>
+      </p>
+
+      <button class="form-submit" type="button" disabled>Complete enrollment</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-num">02</p>
+    <h2 class="section-title">How opt-in works</h2>
+    <ul class="items">
+      <li>A participant enrolls in their ministry's mentorship program using the intake form the ministry sends them.</li>
+      <li>The participant enters their own mobile number and checks the consent box shown above. The box starts unchecked and is never pre-selected.</li>
+      <li>Consent is always given by the person who will receive the messages. Numbers are never purchased, imported from a third party, or added by a coordinator on someone else's behalf.</li>
+      <li>Consent is not required to participate in the mentorship program.</li>
+      <li>This form is the only opt-in method used for this program. There is no verbal, paper, in-store, or keyword-based opt-in.</li>
+      <li>Immediately after opting in, the participant receives a confirmation message.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="section-num">03</p>
+    <h2 class="section-title">Program details</h2>
+    <ul class="items">
+      <li><strong style="font-weight:500;color:var(--white)">Sender:</strong> Discipler LLC, on behalf of the church or ministry running the mentorship program.</li>
+      <li><strong style="font-weight:500;color:var(--white)">Recipients:</strong> Mentors and mentees enrolled in that ministry's program who have opted in.</li>
+      <li><strong style="font-weight:500;color:var(--white)">Message types:</strong> Check-in prompts, conversational replies to participant responses, and occasional program reminders.</li>
+      <li><strong style="font-weight:500;color:var(--white)">Frequency:</strong> Approximately 3&ndash;5 messages per week during active mentorship programs, up to about 24 messages per month.</li>
+      <li><strong style="font-weight:500;color:var(--white)">Cost:</strong> Discipler does not charge participants for messages. Message and data rates may apply from your carrier.</li>
+      <li><strong style="font-weight:500;color:var(--white)">Carriers:</strong> Carriers are not liable for delayed or undelivered messages.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="section-num">04</p>
+    <h2 class="section-title">Opting out and getting help</h2>
+    <ul class="items">
+      <li>Reply <strong style="font-weight:500;color:var(--white)">STOP</strong> to any message to stop receiving them. You will get one confirmation, and then no further messages.</li>
+      <li>Reply <strong style="font-weight:500;color:var(--white)">START</strong> to begin receiving messages again.</li>
+      <li>Reply <strong style="font-weight:500;color:var(--white)">HELP</strong> for support information, or email support@trydiscipler.com.</li>
+      <li>You can also ask your ministry coordinator to remove your number at any time.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="section-num">05</p>
+    <h2 class="section-title">Sample messages</h2>
+    <div class="msg-list">
+      <div class="msg">
+        <p class="msg-kind">Confirmation, sent immediately after opt-in</p>
+        <p class="msg-text">Discipler: You're confirmed to receive mentorship check-ins from [Ministry Name], about 3&ndash;5 msgs/week. Msg&amp;data rates may apply. Reply HELP for help, STOP to opt out.</p>
+      </div>
+      <div class="msg">
+        <p class="msg-kind">Check-in prompt</p>
+        <p class="msg-text">[Ministry Name] via Discipler: Did you meet today? Reply 1 for yes, 2 for no. Msg&amp;data rates may apply. Reply STOP to opt out, HELP for help.</p>
+      </div>
+      <div class="msg">
+        <p class="msg-kind">Follow-up</p>
+        <p class="msg-text">[Ministry Name] via Discipler: How did it go? Reply A for great, B for good, C for concern. Reply STOP to opt out.</p>
+      </div>
+      <div class="msg">
+        <p class="msg-kind">Reply to HELP</p>
+        <p class="msg-text">Discipler mentorship check-ins. For help email support@trydiscipler.com or visit trydiscipler.com. Msg&amp;data rates may apply. Reply STOP to unsubscribe.</p>
+      </div>
+      <div class="msg">
+        <p class="msg-kind">Reply to STOP</p>
+        <p class="msg-text">You have successfully been unsubscribed. You will not receive any more messages from this number. Reply START to resubscribe.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-num">06</p>
+    <h2 class="section-title">Privacy</h2>
+    <div class="note">
+      <p>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties. Full details are in our <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Service</a>.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-num">Contact</p>
+    <h2 class="section-title">Questions about this program?</h2>
+    <p class="body">Reach out directly and we'll help. Discipler LLC, Athens, Georgia.</p>
+    <div class="contact-link">
+      <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="/"><img src="/logo.png" alt="Discipler"></a>
+    <p class="footer-tagline">Mentorship infrastructure for growing ministries</p>
+  </div>
+
+  <ul class="footer-links">
+    <li><a href="/#problems">About</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#cta">Request Access</a></li>
+    <li><a href="/sms-opt-in/">SMS Opt-In</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+  </ul>
+
+  <p class="footer-copy">&copy; 2026 Discipler. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
