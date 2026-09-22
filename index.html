@@ -64,6 +64,11 @@ nav{
 .nav-links a:hover{color:var(--white)}
 .nav-cta{font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);background:var(--accent-warm);padding:0.65rem 1.5rem;border:none;cursor:pointer;text-decoration:none;transition:all 0.25s;border-radius:2px}
 .nav-cta:hover{background:var(--white);transform:translateY(-1px)}
+.nav-actions{display:flex;align-items:center;gap:1rem}
+.nav-login{font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);text-decoration:none;padding:0.6rem 1.25rem;border:0.5px solid var(--mist-border);border-radius:2px;transition:all 0.25s}
+.nav-login:hover{background:var(--mist-strong);border-color:var(--white-muted)}
+.btn-login{font-size:0.78rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--white);text-decoration:none;display:inline-block;padding:1rem 2.25rem;border:0.5px solid var(--white-muted);border-radius:2px;transition:all 0.25s}
+.btn-login:hover{background:var(--mist-strong);border-color:var(--white);transform:translateY(-2px)}
 
 /* HERO */
 .hero{
@@ -87,7 +92,7 @@ nav{
 }
 .hero-title em{font-style:italic;color:var(--accent)}
 .hero-body{font-size:1.15rem;line-height:1.75;color:var(--white-muted);max-width:480px;margin-bottom:3rem;font-weight:300}
-.hero-actions{display:flex;align-items:center;gap:2rem}
+.hero-actions{display:flex;align-items:center;gap:1.25rem 2rem;flex-wrap:wrap}
 
 .btn-primary{
   font-size:0.78rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;
@@ -278,7 +283,10 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 .section-how{background:url("bg-how.jpg") center/cover no-repeat fixed}
 
 @media(max-width:900px){
-  nav{padding:0 2rem}
+  nav{padding:0 1.25rem}
+  .nav-logo img{height:48px}
+  .nav-actions{gap:0.5rem}
+  .nav-login,.nav-cta{padding:0.55rem 0.9rem;font-size:0.68rem}
   .nav-links{display:none}
   .hero{grid-template-columns:1fr;padding:7rem 2rem 4rem}
   .hero-visual{display:none}
@@ -307,7 +315,10 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <li><a href="#how">How It Works</a></li>
     <li><a href="/blog/paul-article.html">Blog</a></li>
   </ul>
-  <a href="https://calendly.com/trydiscipler/30min" class="nav-cta">Book a Demo</a>
+  <div class="nav-actions">
+    <a href="https://app.trydiscipler.com" class="nav-login">Log in</a>
+    <a href="https://calendly.com/trydiscipler/30min" class="nav-cta">Book a Demo</a>
+  </div>
 </nav>
 
 <section class="hero">
@@ -317,6 +328,7 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <p class="hero-body fade-up fade-up-3">We help ministry leaders who are stuck using spreadsheets and text messages to manage discipleship, so they can spend more time caring for people, without worrying that someone is being forgotten.</p>
     <div class="hero-actions fade-up fade-up-4">
       <a href="https://calendly.com/trydiscipler/30min" class="btn-primary">Book a Demo</a>
+      <a href="https://app.trydiscipler.com" class="btn-login">Log in</a>
       <a href="#how" class="btn-ghost">See how it works</a>
     </div>
   </div>
