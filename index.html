@@ -59,7 +59,8 @@ nav{
 }
 .nav-logo{text-decoration:none;display:flex;align-items:center}
 .nav-logo img{height:62px;width:auto;display:block;filter:brightness(0) invert(1)}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links{display:flex;gap:clamp(1.25rem,2.2vw,2.5rem);list-style:none;margin:0 1.5rem}
+.nav-links a,.nav-login,.nav-cta,.btn-primary,.btn-login,.btn-ghost{white-space:nowrap}
 .nav-links a{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-muted);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--white)}
 .nav-cta{font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);background:var(--accent-warm);padding:0.65rem 1.5rem;border:none;cursor:pointer;text-decoration:none;transition:all 0.25s;border-radius:2px}
@@ -281,6 +282,12 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 .section-features{background:url("bg-features.jpg") center/cover no-repeat fixed}
 .section-heart{background:url("bg-heart.jpg") center/cover no-repeat fixed}
 .section-how{background:url("bg-how.jpg") center/cover no-repeat fixed}
+
+@media(max-width:1200px){
+  nav{padding:0 2rem}
+  .nav-links{display:none}
+  .hero{padding:8rem 2.5rem 4rem;gap:2.5rem}
+}
 
 @media(max-width:900px){
   nav{padding:0 1.25rem}
