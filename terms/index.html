@@ -50,6 +50,18 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
 .footer-links a{font-size:0.65rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--white-faint);text-decoration:none;transition:color 0.2s}
 .footer-links a:hover{color:var(--accent)}
 .footer-copy{font-size:0.63rem;color:rgba(255,255,255,0.2)}
+.sub-title{font-family:var(--font-body);font-size:0.85rem;font-weight:500;color:var(--white);margin:1.25rem 0 0.5rem}
+strong{font-weight:500;color:var(--white)}
+code{font-size:0.8rem;color:var(--accent-warm)}
+p.body + p.body,p.body + ul.items,ul.items + p.body{margin-top:0.75rem}
+ul.items + ul.items{margin-top:0.75rem}
+.table-wrap{overflow-x:auto;margin:0.75rem 0}
+table{width:100%;border-collapse:collapse;font-size:0.78rem;line-height:1.5}
+th{text-align:left;font-weight:500;color:var(--white);padding:0.5rem 0.75rem 0.5rem 0;border-bottom:0.5px solid var(--mist-border)}
+td{color:var(--white-muted);font-weight:300;padding:0.5rem 0.75rem 0.5rem 0;border-bottom:0.5px solid var(--mist-border);vertical-align:top}
+ul.items li a,p.body a{color:var(--accent);text-decoration:none}
+ul.items li a:hover,p.body a:hover{color:var(--white)}
+p.body{overflow-wrap:anywhere}
 @media(max-width:900px){
   nav{padding:0 1.5rem}.nav-links{display:none}
   .page-header{padding:5rem 1.5rem 2rem}.doc{padding:2rem 1.5rem 4rem}
@@ -74,120 +86,235 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
 <div class="page-header">
   <p class="eyebrow">Legal</p>
   <h1 class="page-title">Terms of Service</h1>
-  <p class="page-date">Effective Date: July 3, 2026</p>
+  <p class="page-date">Effective Date: November 3, 2026</p>
 </div>
 
 <div class="doc">
 
   <div class="section">
-    <p class="body">These Terms of Service ("Terms") govern your access to and use of Discipler, a platform operated by Discipler LLC ("Discipler," "we," "us," or "our") that helps churches and ministries manage mentorship and discipleship programs. By accessing or using Discipler, you agree to these Terms. If you do not agree, please do not use the platform.</p>
+    <p class="body">These Terms of Service ("Terms") govern your use of Discipler, a service operated by Discipler LLC, a Georgia limited liability company ("Discipler," "we," "us"). Discipler helps churches and ministries run discipleship and mentorship relationships. By using Discipler, you agree to these Terms and to our Privacy Policy. If you do not agree, do not use Discipler.</p>
   </div>
 
   <div class="section">
     <p class="section-num">01</p>
-    <h2 class="section-title">The service we provide</h2>
-    <p class="body">Discipler provides mentorship infrastructure for churches and ministries, including mentor–mentee coordination, SMS-based check-ins, program health signals for coordinators, and related tools. Features may change, expand, or be discontinued as the platform evolves.</p>
+    <h2 class="section-title">Who uses Discipler</h2>
+    <ul class="items">
+      <li>An <strong>Organization</strong> is the church or ministry that uses Discipler to run its program.</li>
+      <li>An <strong>Administrator</strong> is someone an Organization gives administrator access to, to manage its people, relationships, materials and follow-up.</li>
+      <li>A <strong>Leader</strong> is someone who leads a discipleship relationship.</li>
+      <li>A <strong>Participant</strong> is someone being discipled.</li>
+    </ul>
+    <p class="body">The same person can hold more than one of these roles. "You" means whoever is using Discipler, in whatever role.</p>
+    <p class="body">If your Organization has signed a separate service agreement with Discipler, that agreement also applies, and it controls if it conflicts with these Terms.</p>
   </div>
 
   <div class="section">
     <p class="section-num">02</p>
-    <h2 class="section-title">Eligibility and accounts</h2>
-    <ul class="items">
-      <li>You must be at least 13 years old to use Discipler, and old enough to consent to receive text messages in your jurisdiction where applicable.</li>
-      <li>You are responsible for the accuracy of the information you provide and for activity that occurs under your account.</li>
-      <li>Keep your login credentials secure and notify us promptly of any unauthorized use.</li>
-    </ul>
+    <h2 class="section-title">The service</h2>
+    <p class="body">Discipler provides intake forms, pairing suggestions, relationship management, weekly text-message check-ins, follow-up tools for Administrators, discipleship materials and reports on an Organization's own program. It also provides Administrators with a help center and Ask Discipler, an AI help assistant that answers questions about using Discipler from our help pages. We may add, change or remove features as the service develops. Features we mark as early or pilot features may change or end at any time.</p>
   </div>
 
   <div class="section">
     <p class="section-num">03</p>
-    <h2 class="section-title">Churches and administrators</h2>
-    <p class="body">Churches and ministries that use Discipler ("Organizations") administer their own mentorship programs and are responsible for how they invite, pair, and communicate with their participants. If you use Discipler as part of an Organization's program, that Organization's leaders and administrators may access information needed to manage the program, as described in our <a href="/privacy/">Privacy Policy</a>.</p>
+    <h2 class="section-title">Eligibility and accounts</h2>
+    <ul class="items">
+      <li>You must be at least 18 years old to use Discipler.</li>
+      <li>Each person holds one account, even if they belong to more than one Organization. Accounts are for people, and may not be created by automated means.</li>
+      <li>You are responsible for giving accurate information and keeping it current.</li>
+      <li>Leaders sign in with a phone number and password. Administrators who signed up with an email address sign in with that email address or their phone number, and password. Keep your password secure, do not share your account, and tell us or your Organization promptly if you think someone else has used it.</li>
+      <li>If you are an Administrator with an email address on your account, keep that email account secure too: a password reset link is sent to it.</li>
+      <li>You are responsible for activity under your account.</li>
+    </ul>
   </div>
 
   <div class="section">
     <p class="section-num">04</p>
-    <h2 class="section-title">SMS messaging terms</h2>
+    <h2 class="section-title">Organizations and Administrators</h2>
+    <p class="body">An Organization can sign itself up on Discipler, or be set up by us under a separate agreement. When you sign up or set up an Organization on Discipler, you confirm that you have authority to accept these Terms on its behalf, and that the information you give about it is true. We record your agreement, with the version of these Terms you agreed to and when. We may ask for evidence of that authority and suspend the Organization's access until it is provided.</p>
+    <p class="body">Each Organization:</p>
     <ul class="items">
-      <li>By providing your mobile number and opting in, you agree to receive recurring text messages sent via Discipler on behalf of your church or ministry, which may display your ministry's name as the sender.</li>
-      <li>Messages may include weekly check-ins, follow-up questions, meeting reminders, and program coordination.</li>
-      <li>Message frequency varies. During active mentorship programs, participants typically receive 3–5 messages per week (up to approximately 24 messages per month).</li>
-      <li>Message and data rates may apply.</li>
-      <li>Consent to receive text messages is not a condition of any purchase or of participation in your mentorship program.</li>
-      <li>You can opt out at any time by replying STOP. You can request help by replying HELP or by contacting support@trydiscipler.com.</li>
-      <li>Carriers are not liable for delayed or undelivered messages.</li>
-      <li>Mobile numbers, SMS opt-in data, and messaging consent are never shared with third parties or affiliates for marketing or promotional purposes.</li>
+      <li>is responsible for how it runs its program, including who it invites, who it pairs and how it follows up</li>
+      <li>is responsible for its Administrators and for making sure its users follow these Terms</li>
+      <li>adds people to Discipler only for its discipleship program, and invites them to give their own consent through the intake form. An Organization may never give consent on someone else's behalf.</li>
+      <li>gives its members any privacy notice the law requires of it, and handles their questions about how it uses their information</li>
+      <li>complies with the laws that apply to it, including laws on text messaging, privacy and safeguarding</li>
     </ul>
+    <p class="body">If Administrators disagree about control of an Organization's account, we will follow written instructions from the Organization's senior pastor or other senior leader. We may suspend the account until the disagreement is resolved.</p>
   </div>
 
   <div class="section">
     <p class="section-num">05</p>
-    <h2 class="section-title">Acceptable use</h2>
-    <p class="body">You agree not to misuse Discipler. Among other things, you will not:</p>
-    <ul class="items">
-      <li>Use the platform for any unlawful, harmful, or deceptive purpose</li>
-      <li>Send unsolicited, harassing, or abusive messages to any participant</li>
-      <li>Attempt to access accounts, data, or systems you are not authorized to access</li>
-      <li>Interfere with, disrupt, or reverse engineer the platform or its security</li>
-      <li>Upload contact information without the appropriate consent to communicate with those individuals</li>
-    </ul>
+    <h2 class="section-title">Pastoral care is a human responsibility</h2>
+    <p class="body">Discipler helps an Organization see how its relationships are going. It does not replace pastoral judgment, counseling or professional care.</p>
+    <p class="body">Check-in replies and concerns are not monitored around the clock, by Discipler or necessarily by the Organization. <strong>Discipler is not an emergency service. If someone is in danger, call 911 or your local emergency number.</strong></p>
+    <p class="body">Pairing suggestions are suggestions. The Organization decides every pairing and is responsible for the safety of the relationships it forms.</p>
   </div>
 
   <div class="section">
     <p class="section-num">06</p>
-    <h2 class="section-title">Your information and privacy</h2>
-    <p class="body">Your use of Discipler is also governed by our <a href="/privacy/">Privacy Policy</a>, which explains what we collect, how we use it, and the choices you have. By using the platform, you consent to the practices described there.</p>
+    <h2 class="section-title">Text messages</h2>
+    <p class="body">By giving your mobile number on an intake form and opting in, you agree to receive recurring text messages sent through Discipler on behalf of your Organization. Every message starts with your Organization's name followed by "via Discipler".</p>
+    <p class="body">By giving your mobile number when you sign an Organization up, you agree to receive texts from Discipler at that number, including sign-in codes and test check-ins.</p>
+    <ul class="items">
+      <li>Messages may include a welcome message, introductions, meeting reminders, weekly check-ins, follow-up questions and program coordination.</li>
+      <li>Message frequency varies. Leaders typically receive 3-5 messages per week during an active relationship (up to approximately 24 per month), and Participants receive far fewer. An Administrator receives only the codes and test check-ins they ask for.</li>
+      <li>Msg &amp; data rates may apply.</li>
+      <li>Consent to receive check-in texts is not a condition of any purchase. An administrator who signs a church up agrees to receive sign-in codes and test check-ins as part of signing up.</li>
+      <li>Reply STOP at any time to stop all messages, and START to opt back in.</li>
+      <li>Reply HELP for help, or email <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a>.</li>
+      <li>Carriers are not liable for delayed or undelivered messages.</li>
+      <li>Mobile numbers, text-message opt-in data and messaging consent are never shared with third parties or affiliates for marketing or promotional purposes.</li>
+    </ul>
   </div>
 
   <div class="section">
     <p class="section-num">07</p>
-    <h2 class="section-title">Intellectual property</h2>
-    <p class="body">Discipler, including its software, design, and content, is owned by Discipler LLC and protected by applicable laws. We grant you a limited, non-exclusive, non-transferable right to use the platform in accordance with these Terms. Content you submit remains yours; you grant us the permissions needed to operate and provide the service.</p>
+    <h2 class="section-title">Acceptable use</h2>
+    <p class="body">Use Discipler only to run discipleship and mentorship relationships for an Organization. You agree not to:</p>
+    <ul class="items">
+      <li>use Discipler for anything unlawful, harmful, deceptive or unrelated to that purpose</li>
+      <li>harass, threaten or abuse anyone, or send messages a person has not agreed to receive</li>
+      <li>add anyone's contact information without the right to do so</li>
+      <li>impersonate any person or organization, or misrepresent your connection to one</li>
+      <li>enter Social Security numbers or other government ID numbers, financial account or card numbers, or health records</li>
+      <li>upload sexually explicit material, content that promotes violence or hatred, or anything else that is unlawful to share</li>
+      <li>upload material you do not have the right to share, such as copyrighted books or manuals you are not licensed to distribute</li>
+      <li>access, or try to access, accounts or information you are not authorized to see, including another Organization's information</li>
+      <li>interfere with, overload, disrupt, probe or reverse engineer the service or its security</li>
+      <li>scrape Discipler or access it by automated means</li>
+      <li>sell or commercially exploit information about the people in an Organization</li>
+      <li>sign up more than once, use another Organization's payment details, or misdescribe an Organization, to get a free trial, an offer or a referral credit it is not entitled to</li>
+      <li>type the names, phone numbers or prayer requests of the people in your program into the help assistant</li>
+    </ul>
+    <p class="body">We may remove content or suspend access that we reasonably believe breaks these rules.</p>
   </div>
 
   <div class="section">
     <p class="section-num">08</p>
-    <h2 class="section-title">Third-party services</h2>
-    <p class="body">Discipler relies on trusted third-party providers, such as SMS delivery and hosting services, to operate. Those providers process information only as needed to provide the service. We are not responsible for the independent practices of third parties beyond our control.</p>
+    <h2 class="section-title">Your content and data</h2>
+    <p class="body">The information an Organization and its people put into Discipler, including rosters, intake answers, check-in replies and materials, belongs to the Organization and to those people. We claim no ownership of it.</p>
+    <p class="body">You give Discipler a limited license to store, process and display that content only as needed to provide, secure and support the service, as described in our Privacy Policy. You confirm that you have the rights needed to give us that license.</p>
+    <p class="body">An Organization may ask for a copy of its information at any time while it uses Discipler, and for 30 days after it stops.</p>
+    <p class="body">If you send us suggestions or feedback, we may use them without any obligation to you.</p>
   </div>
 
   <div class="section">
     <p class="section-num">09</p>
-    <h2 class="section-title">Disclaimers</h2>
-    <p class="body">Discipler is provided "as is" and "as available," without warranties of any kind, whether express or implied, to the fullest extent permitted by law. We do not warrant that the platform will be uninterrupted, error-free, or secure, though we work in good faith to make it reliable.</p>
+    <h2 class="section-title">Copyright complaints</h2>
+    <p class="body">If you believe material in Discipler infringes your copyright, email <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a> with:</p>
+    <ul class="items">
+      <li>your contact details and signature</li>
+      <li>the work you believe is infringed</li>
+      <li>where the material appears in Discipler</li>
+      <li>a statement that you believe in good faith the use is not authorized</li>
+      <li>a statement, under penalty of perjury, that your notice is accurate and that you are the owner or authorized to act for the owner</li>
+    </ul>
+    <p class="body">We will remove material that infringes, and may end the access of anyone who infringes repeatedly. If your material was removed and you believe that was a mistake, you may send us a counter-notice.</p>
+    <p class="body">Our designated agent for copyright notices is James Harden, Discipler LLC, 116 Beaver St., Carrollton, GA, 205-602-4308, <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a>.</p>
   </div>
 
   <div class="section">
     <p class="section-num">10</p>
-    <h2 class="section-title">Limitation of liability</h2>
-    <p class="body">To the fullest extent permitted by law, Discipler LLC will not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of data, arising from your use of the platform. Our total liability for any claim relating to the service will not exceed the amount you paid us, if any, for the service in the twelve months preceding the claim.</p>
+    <h2 class="section-title">Intellectual property</h2>
+    <p class="body">Discipler's software, design and branding belong to Discipler LLC. We give you a limited, non-exclusive, non-transferable right to use Discipler under these Terms. You may not copy, modify, sell or create derivative works from the service.</p>
   </div>
 
   <div class="section">
     <p class="section-num">11</p>
-    <h2 class="section-title">Termination</h2>
-    <p class="body">You may stop using Discipler at any time. We may suspend or terminate access if these Terms are violated or if needed to protect the platform or its participants. Provisions that by their nature should survive termination will continue to apply.</p>
+    <h2 class="section-title">Third-party services</h2>
+    <p class="body">Discipler relies on third-party providers, such as database, hosting, text-message, payment, email and AI providers, listed in our Privacy Policy. Payments are processed by Stripe, and when you add a card or bank account you also agree to Stripe's terms, including any debit authorization Stripe shows you for a bank account. We are not responsible for the independent acts of third parties outside our control.</p>
   </div>
 
   <div class="section">
     <p class="section-num">12</p>
-    <h2 class="section-title">Changes to these terms</h2>
-    <p class="body">We may update these Terms from time to time. When we do, we will revise the effective date above. Continued use of Discipler after changes take effect means you accept the updated Terms.</p>
+    <h2 class="section-title">Fees, the free trial and billing</h2>
+    <h3 class="sub-title">Your subscription</h3>
+    <p class="body">An Organization that signs itself up pays for Discipler by subscription, billed monthly or yearly, as it chooses when it signs up. The price is shown when you choose how to pay, and on your Organization's Billing page afterwards. It depends on how many people are in active discipleship relationships in your Organization, leaders and those being discipled counted together: one price for up to 200 people, and a higher one above 200. Every Organization starts on the lower price. If your Organization stays above 200 for a whole month, we may contact you about the higher price, and we will not change it without the notice described below. Yearly billing costs 20% less than twelve monthly payments.</p>
+    <p class="body">If your Organization has a separate service agreement with us, its fees and payment terms apply instead of this section. An Organization we set up ourselves, with no subscription and no agreement that sets fees, uses Discipler free until we give it at least 30 days' written notice of fees.</p>
+    <h3 class="sub-title">The free trial</h3>
+    <p class="body">Every new subscription starts with a free trial, of 30 days unless an offer below gives you longer. A card or US bank account is required to start it, and nothing is charged until it ends. We will email your Organization's Administrators before the trial ends, and Stripe may send its own reminder. If you cancel before the trial ends, you will not be charged. An Organization gets one free trial: a subscription restarted after it has ended is charged on the day it restarts.</p>
+    <h3 class="sub-title">Payment</h3>
+    <p class="body">When the trial ends, your subscription renews automatically each month or each year, and the price then in effect is charged to your card or bank account until you cancel. You authorize us, through Stripe, to make those charges. A bank account can be added only through Stripe's instant bank sign-in. To change to a different bank account, email <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a>.</p>
+    <p class="body">Prices do not include taxes, and any sales or similar tax that applies is the Organization's to pay.</p>
+    <p class="body">If a payment fails, Discipler keeps running while Stripe tries again, and your Administrators see a notice asking them to update the payment method. If the payment still cannot be collected, the subscription ends.</p>
+    <h3 class="sub-title">Offers</h3>
+    <p class="body">We may offer savings on a subscription. These are the offers available when these Terms take effect:</p>
+    <ul class="items">
+      <li><strong>The Exponential special offer.</strong> An Organization that signs up with the code <code>EXPO26</code>, or the link that carries it, before the end of December 11, 2026, Pacific time, gets 60 days free instead of 30, then 20% off its first 12 months of paid bills, or off its first yearly bill. After that date the code is refused, and the ordinary free trial still applies.</li>
+      <li><strong>Inviting another Organization.</strong> An Organization invited through another Organization's referral link gets its first paid month free. The inviting Organization earns one month free, applied to its own bill after the invited Organization pays its first bill that is not free. The credit is applied no sooner than 30 days after that payment, and is cancelled if the payment is refunded or disputed. We may review, and decline, a credit where the two Organizations appear to be the same or connected, for example because they share payment details or an email domain. An Organization that gets a new referral link retires its old one, and an Organization that signs up through a retired link pays the ordinary price.</li>
+      <li><strong>Church plants.</strong> A church that launched within the last 3 years, or will launch within the next 12 months, may apply when it signs up for 12 months free, which begins after its free trial. We decide each application at our discretion. A church plant that signed up with the Exponential offer gets its 60 free days, then its free year, then the Exponential offer's 20% off.</li>
+    </ul>
+    <p class="body">Offers do not combine except as just described for a church plant. Where an Organization could have both the referral offer and another offer, the other offer applies. Each Organization may use each offer once, and a card or bank account may be used for one first free month and one church plant year. Every offer ends when its subscription ends, and a subscription restarted afterwards is charged at the ordinary price.</p>
+    <h3 class="sub-title">Cancelling</h3>
+    <p class="body">Any Administrator may cancel the subscription from the Billing page. A cancellation takes effect at the end of the month or year already paid for, and Discipler keeps working until then. Cancelling does not refund any part of a monthly or yearly payment, unless the law requires it.</p>
+    <p class="body">When a subscription ends, weekly check-ins and other text messages stop, the Organization's pages become read-only, and its information is kept as our Privacy Policy describes. Links people were already sent keep working, and the Organization may restart from the same account, for as long as its information is kept.</p>
+    <h3 class="sub-title">Changes to prices</h3>
+    <p class="body">We may change prices with at least 30 days' notice to the Organization's Administrators. A change takes effect from the first bill after the notice period. We may suspend an Organization's access if fees are more than 30 days overdue.</p>
   </div>
 
   <div class="section">
     <p class="section-num">13</p>
-    <h2 class="section-title">Governing law</h2>
-    <p class="body">These Terms are governed by the laws of the State of Georgia, without regard to its conflict-of-law rules. Any disputes will be resolved in the state or federal courts located in Georgia, unless otherwise required by applicable law.</p>
+    <h2 class="section-title">Suspension and termination</h2>
+    <p class="body">You may stop using Discipler at any time. An Organization may end its use by cancelling its subscription as section 12 describes, or as its service agreement allows.</p>
+    <p class="body">We may suspend or end access, for one user or a whole Organization, if these Terms are broken, if fees go unpaid, or if needed to protect the service, its users or the people in an Organization's program. Where reasonable, we will give notice first.</p>
+    <p class="body">When an Organization's use ends, we handle its information as described in our Privacy Policy, and it may ask for a copy within 30 days. Sections that by their nature should continue, including those on content, disclaimers, liability, indemnification and disputes, survive termination.</p>
   </div>
 
   <div class="section">
-    <p class="section-num">Contact</p>
-    <h2 class="section-title">Questions?</h2>
-    <p class="body">Reach out directly with any questions about these Terms.</p>
-    <div class="contact-link">
-      <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a>
-    </div>
+    <p class="section-num">14</p>
+    <h2 class="section-title">Disclaimers</h2>
+    <p class="body">Discipler is provided "as is" and "as available." To the fullest extent permitted by law, we disclaim all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose and non-infringement. We do not promise that the service will be uninterrupted, error-free or secure, that every text message will be delivered, or that pairing suggestions, check-in results or reports will be accurate or complete. Answers from the help assistant are generated by AI and may be wrong; each one links to the help page it came from, and the help page is what to rely on. We work in good faith to make Discipler reliable.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">15</p>
+    <h2 class="section-title">Limitation of liability</h2>
+    <p class="body">To the fullest extent permitted by law, Discipler LLC will not be liable for any indirect, incidental, special, consequential or punitive damages, or for lost profits, lost data or interruption of service, arising from your use of Discipler, even if we were told such damages were possible. Our total liability for any claim relating to the service will not exceed the amount the Organization paid us for the service in the 12 months before the event giving rise to the claim, or $100 if nothing was paid. Some jurisdictions do not allow these limits, so they may not all apply to you.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">16</p>
+    <h2 class="section-title">Indemnification</h2>
+    <p class="body">To the extent permitted by law, you agree to defend and indemnify Discipler LLC and its owners, employees and agents against claims, losses and reasonable legal fees arising from your breach of these Terms, your misuse of the service, or your violation of law or of anyone else's rights.</p>
+    <p class="body">An Organization also agrees to defend and indemnify Discipler LLC against claims arising from the information it and its users put into Discipler, its consent and messaging practices, and the acts of its Administrators and other users.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">17</p>
+    <h2 class="section-title">Disputes</h2>
+    <p class="body">If you have a dispute with us, please email <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a> first and give us 30 days to try to resolve it informally.</p>
+    <p class="body">These Terms are governed by the laws of the State of Georgia, without regard to its conflict-of-law rules. Any dispute that is not resolved informally will be brought in the state courts located in Carroll County, Georgia, or the federal court for the Northern District of Georgia, and you and Discipler consent to their jurisdiction, unless the law where you live requires otherwise.</p>
+    <p class="body">To the extent permitted by law, any claim must be brought within one year after it arises.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">18</p>
+    <h2 class="section-title">Notices</h2>
+    <p class="body">You agree that we may send notices about Discipler electronically, by email to an Organization's Administrators, by text message where appropriate, or by posting them in the app.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">19</p>
+    <h2 class="section-title">Changes to these Terms</h2>
+    <p class="body">We may update these Terms from time to time and will change the effective date at the top when we do. For a material change, we will notify Organizations by email at least 30 days before it takes effect. Continuing to use Discipler after a change takes effect means you accept the updated Terms.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">20</p>
+    <h2 class="section-title">General</h2>
+    <ul class="items">
+      <li>These Terms, our Privacy Policy and any service agreement are the entire agreement between you and Discipler about the service.</li>
+      <li>If any part of these Terms is found unenforceable, the rest stays in effect.</li>
+      <li>Our not enforcing a right is not a waiver of it.</li>
+      <li>You may not transfer your rights under these Terms without our consent. We may transfer ours in a merger, acquisition or sale of assets.</li>
+      <li>We are not responsible for delays or failures caused by events beyond our reasonable control, such as carrier or network outages.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="section-num">21</p>
+    <h2 class="section-title">Contact us</h2>
+    <p class="body">Discipler LLC<br>116 Beaver St., Carrollton, GA<br><a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a></p>
   </div>
 
 </div>

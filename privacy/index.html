@@ -49,6 +49,18 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
 .footer-links a{font-size:0.65rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--white-faint);text-decoration:none;transition:color 0.2s}
 .footer-links a:hover{color:var(--accent)}
 .footer-copy{font-size:0.63rem;color:rgba(255,255,255,0.2)}
+.sub-title{font-family:var(--font-body);font-size:0.85rem;font-weight:500;color:var(--white);margin:1.25rem 0 0.5rem}
+strong{font-weight:500;color:var(--white)}
+code{font-size:0.8rem;color:var(--accent-warm)}
+p.body + p.body,p.body + ul.items,ul.items + p.body{margin-top:0.75rem}
+ul.items + ul.items{margin-top:0.75rem}
+.table-wrap{overflow-x:auto;margin:0.75rem 0}
+table{width:100%;border-collapse:collapse;font-size:0.78rem;line-height:1.5}
+th{text-align:left;font-weight:500;color:var(--white);padding:0.5rem 0.75rem 0.5rem 0;border-bottom:0.5px solid var(--mist-border)}
+td{color:var(--white-muted);font-weight:300;padding:0.5rem 0.75rem 0.5rem 0;border-bottom:0.5px solid var(--mist-border);vertical-align:top}
+ul.items li a,p.body a{color:var(--accent);text-decoration:none}
+ul.items li a:hover,p.body a:hover{color:var(--white)}
+p.body{overflow-wrap:anywhere}
 @media(max-width:900px){
   nav{padding:0 1.5rem}.nav-links{display:none}
   .page-header{padding:5rem 1.5rem 2rem}.doc{padding:2rem 1.5rem 4rem}
@@ -73,104 +85,230 @@ footer img{height:18px;width:auto;display:block;filter:brightness(0) invert(1);o
 <div class="page-header">
   <p class="eyebrow">Legal</p>
   <h1 class="page-title">Privacy Policy</h1>
-  <p class="page-date">Effective Date: July 23, 2026</p>
+  <p class="page-date">Effective Date: November 3, 2026</p>
 </div>
 
 <div class="doc">
 
   <div class="section">
-    <p class="body">Discipler is built to support mentorship within churches and ministries. We take your privacy seriously and keep things simple and transparent.</p>
+    <p class="body">Discipler helps churches and ministries run discipleship and mentorship relationships: pairing people, checking in by text each week, and showing ministry leaders where care is needed. This policy explains what information Discipler handles, why, who can see it, and the choices you have.</p>
+    <p class="body">Discipler is operated by Discipler LLC, a Georgia limited liability company ("Discipler," "we," "us").</p>
   </div>
 
   <div class="section">
     <p class="section-num">01</p>
-    <h2 class="section-title">What we collect</h2>
-    <ul class="items">
-      <li>Name, email address, and phone number</li>
-      <li>Availability and mentorship preferences</li>
-      <li>Basic profile information, such as interests, goals, and ministry participation</li>
-      <li>Mentorship activity, including meeting check-ins, responses, and follow-up notes</li>
-      <li>Basic technical information needed to operate and improve the platform</li>
-    </ul>
+    <h2 class="section-title">Your ministry and Discipler</h2>
+    <p class="body">Most of the information in Discipler belongs to the church or ministry that invited you (your "ministry"). Your ministry decides who is added, who is paired with whom, and how the program is run. Discipler stores and processes that information on your ministry's behalf, following its instructions, to provide the service. In privacy-law terms, your ministry is the controller (or "business") and Discipler is its processor (or "service provider").</p>
+    <p class="body">Your ministry may have its own privacy notice describing how it uses your information, and you can ask your ministry about it directly.</p>
+    <p class="body">A smaller set of information Discipler collects for its own purposes: the details a church gives when it signs up for Discipler and pays for it, messages sent to our support address or through our contact form, questions administrators ask our help assistant, and visits to our website. For that information, Discipler is the controller. This policy covers both.</p>
+    <p class="body">Each ministry's information is kept separate from every other ministry's. One ministry can never see another's people, and we never combine information across ministries, even in anonymized or aggregate form.</p>
   </div>
 
   <div class="section">
     <p class="section-num">02</p>
-    <h2 class="section-title">How we use your information</h2>
+    <h2 class="section-title">What we collect</h2>
+    <h3 class="sub-title">Information you give on your ministry's intake form</h3>
     <ul class="items">
-      <li>Match mentors and mentees</li>
-      <li>Send reminders, check-ins, and follow-ups, including SMS messages</li>
-      <li>Help ministry leaders understand engagement and program health</li>
-      <li>Support, operate, secure, and improve the Discipler platform</li>
+      <li>Your name and mobile phone number</li>
+      <li>Your email address, if you choose to give one</li>
+      <li>Your gender and age range (for example, 25-34), never your exact age or date of birth</li>
+      <li>The times of the week you are usually available</li>
+      <li>The discipleship goal you choose from your ministry's list, and whether you want to lead or be discipled</li>
+      <li>The group you chose, if your ministry invited you to join a group</li>
+      <li>Your answers to the consent questions: whether you agree to receive texts, and whether you agree to your phone number being shared with the people in your discipleship relationship. We record when you answered, which version of the wording you saw, and whether you reached the form from a link or a QR code.</li>
     </ul>
+    <h3 class="sub-title">Information your ministry adds</h3>
+    <ul class="items">
+      <li>Names, phone numbers and email addresses your ministry's administrators add to its roster, for example by importing a spreadsheet</li>
+      <li>The relationships your ministry forms, the discipleship materials it assigns, and the notes and decisions its administrators record while following up</li>
+    </ul>
+    <p class="body">Being added to a roster does not sign you up for anything. Discipler texts nobody and pairs nobody until that person completes the intake form and gives consent themselves.</p>
+    <h3 class="sub-title">Information from text messages</h3>
+    <ul class="items">
+      <li>Replies to weekly check-ins: whether a meeting happened, how it went, and anything a leader writes when they raise a concern</li>
+      <li>Keywords such as STOP, START, HELP, PAUSE, RESUME and SWAP, and any other reply you send</li>
+      <li>Delivery information for each text, such as when it was sent and whether it arrived</li>
+    </ul>
+    <p class="body">Only leaders are asked check-in questions. If you are being discipled, the texts you receive are mostly to welcome you and introduce your leader.</p>
+    <h3 class="sub-title">Information a church gives when it signs up</h3>
+    <p class="body">When someone signs a church or ministry up for Discipler, we collect:</p>
+    <ul class="items">
+      <li>their email address and mobile phone number, and a code we email to confirm the address</li>
+      <li>their full name, the church or ministry's name, its timezone, and, if they choose to say, where they heard about Discipler</li>
+      <li>whether the church is a church plant, and if it applies for the church plant offer, its launch date, its sending or partner church, its average weekly attendance, its lead pastor, and anything else they choose to tell us</li>
+      <li>whether they pay monthly or yearly, any offer or referral link they used, and their agreement to our Terms of Service and this Privacy Policy, recorded with the version they agreed to and when</li>
+    </ul>
+    <h3 class="sub-title">Payment information</h3>
+    <p class="body">Card and bank details are entered only on forms provided by Stripe, our payment processor, and never reach Discipler's servers. If you add a bank account, you sign in to your bank through Stripe, under Stripe's own privacy policy. Discipler keeps only Stripe's reference numbers, the card brand and its last four digits or the bank's name, the plan, and the history of invoices and payments.</p>
+    <h3 class="sub-title">Account information</h3>
+    <p class="body">Leaders sign in with their phone number and a password. Administrators who signed up with an email address can sign in with that email address or their phone number, and can reset a forgotten password through a one-time link we email them. Your password is stored in hashed form, and nobody at Discipler or your ministry can read it. We keep records of sign-ins and sessions so we can keep accounts secure.</p>
+    <p class="body">When an administrator first sends themselves a test check-in, we text a code to their phone to confirm it is theirs.</p>
+    <h3 class="sub-title">Materials</h3>
+    <p class="body">Ministry administrators may upload discipleship materials, such as PDFs or written text.</p>
+    <h3 class="sub-title">The help assistant</h3>
+    <p class="body">Administrators can ask Ask Discipler, our AI help assistant, questions about using Discipler. We keep each administrator's questions and the answers so the conversation can continue, and only that administrator can read them. The assistant answers from Discipler's help pages only. It never receives your ministry's records about its people, such as names, phone numbers, check-in replies or concerns. The box asks administrators not to type names, phone numbers or prayer requests, but anything they do type is sent to the assistant along with their question.</p>
+    <h3 class="sub-title">Technical information</h3>
+    <p class="body">When you use the Discipler website or app, our hosting providers automatically record information such as your IP address, browser type, device type, the pages you request and the time of each request. We use this only to run, secure and fix the service.</p>
+    <p class="body">Discipler's own cookies are only those needed to keep you signed in and to carry you from one step of signing up to the next. A referral link carries its code in the web address, not in a cookie. We do not use analytics cookies, advertising trackers or cross-site tracking.</p>
+    <p class="body">Two providers we rely on run their own technology in your browser:</p>
+    <ul class="items">
+      <li>When you add or change a card or bank account, Stripe's payment form loads from Stripe and uses its own cookies and device information to prevent fraud, as Stripe's privacy policy describes.</li>
+      <li>When you sign up, or use our contact form without signing in, Cloudflare Turnstile checks that a person rather than a program is using the form, using information about your browser and device, as Cloudflare's privacy policy describes.</li>
+    </ul>
+    <p class="body">Our public website loads its fonts from Google Fonts, which means your browser tells Google your IP address when the page loads.</p>
+    <h3 class="sub-title">Support</h3>
+    <p class="body">If you email us or use the contact, bug report or feature request form, we keep your message and our reply so we can help you. A bug report also records the address of the page you were on and your browser, but never what was on the page.</p>
+    <h3 class="sub-title">Sensitive information</h3>
+    <p class="body">Taking part in a church's discipleship program can reveal your religious beliefs. Concerns written in a check-in reply may describe personal, family or spiritual matters. Gender and age range are used for safeguarding when pairing. We use this information only to provide the service to your ministry, never for any other purpose.</p>
+    <p class="body">Please do not send health records, financial account numbers, Social Security numbers or other government ID numbers through Discipler. The product does not need them.</p>
   </div>
 
   <div class="section">
     <p class="section-num">03</p>
-    <h2 class="section-title">SMS communication</h2>
+    <h2 class="section-title">How we use information</h2>
     <ul class="items">
-      <li>When you provide your mobile phone number and opt in, Discipler may send text messages related to your church or ministry mentorship program.</li>
-      <li>You opt in through your ministry's mentorship intake form, where you enter your own mobile number and check a consent box that is unchecked by default. A sample of that form is available at <a href="/sms-opt-in/">trydiscipler.com/sms-opt-in</a>.</li>
-      <li>Messages are sent by Discipler LLC on behalf of the church or ministry running your mentorship program.</li>
-      <li>Messages may include meeting reminders, weekly check-ins, follow-up questions, and program coordination.</li>
-      <li>Message frequency varies but is typically 3–5 messages per week during active mentorship programs (up to approximately 24 messages per month).</li>
-      <li>Message and data rates may apply.</li>
-      <li>Your consent to receive text messages is not a condition of any purchase or of participation in your mentorship program.</li>
-      <li>You can opt out at any time by replying STOP. You can opt back in by replying START.</li>
-      <li>You can request help by replying HELP or by contacting us at support@trydiscipler.com.</li>
-      <li>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</li>
-      <li>Text messaging originator opt-in data and consent will not be shared with any third parties.</li>
+      <li>To run your discipleship relationship: suggesting pairings to your ministry using gender, age range, availability and discipleship goal, and sending the texts that go with the relationship. A suggestion is only a suggestion. Every relationship is formed by a person at your ministry and accepted by its leader.</li>
+      <li>To show your ministry's administrators how relationships are going, which ones may need care, and what needs follow-up.</li>
+      <li>To prepare reports for your ministry about its own program, such as response rates, how meetings are going, how materials are working, and patterns by age range and gender within that ministry.</li>
+      <li>To create and secure accounts, prevent fraud and abuse, and keep each ministry's information separate.</li>
+      <li>To let a church sign itself up, confirm that a person and not a program is signing up, and confirm its email address and the administrator's phone.</li>
+      <li>To answer support requests and administrators' questions to the help assistant.</li>
+      <li>To fix problems and improve how Discipler works for your ministry.</li>
+      <li>To bill ministries for the service through Stripe, apply offers and referral credits, review church plant applications, and keep business records.</li>
+      <li>To email administrators about their own account: sign-in and confirmation codes, password reset links, reminders before a free trial ends, payment notices, one reminder if a sign-up was left unfinished, and a warning before an ended church's information is deleted.</li>
+      <li>To meet legal obligations and enforce our Terms of Service.</li>
     </ul>
+    <p class="body">We do not use your information to market other products or services to you, and we never sell or rent email addresses or phone numbers. We do not use artificial intelligence to make decisions about you, and we do not use your information to train artificial intelligence models. The help assistant answers administrators' questions about using Discipler; it is not used to make any decision about anyone, and it never receives your ministry's records about its people. Its questions are sent to our AI providers with zero data retention, so the providers do not keep them or train on them. If any of this ever changes, we will update this policy before it does.</p>
   </div>
 
   <div class="section">
     <p class="section-num">04</p>
-    <h2 class="section-title">Who sees your information</h2>
+    <h2 class="section-title">Text messages</h2>
+    <p class="body">There are two ways to agree to receive text messages through Discipler, and samples of both are at trydiscipler.com/sms-opt-in.</p>
     <ul class="items">
-      <li>Your church or ministry leaders and administrators, as needed to manage the mentorship program</li>
-      <li>Discipler, as needed to operate, support, and improve the platform</li>
-      <li>Trusted service providers, such as SMS delivery providers, only as needed to provide the service</li>
+      <li><strong>Your ministry's intake form.</strong> When you complete it and check the text-message consent box, which is unchecked by default, you agree to receive text messages from your ministry through Discipler.</li>
+      <li><strong>Signing a church up.</strong> When an administrator signs a church up for Discipler, the page that asks for their mobile phone number says, under that field: "By continuing, you agree to receive texts from Discipler at this number, including sign-in codes and test check-ins. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help." This lets Discipler text that administrator the codes and test check-ins they ask for, and nothing else.</li>
     </ul>
+    <ul class="items">
+      <li>Messages are sent by Discipler LLC on behalf of the church or ministry running your discipleship program. Every message starts with your ministry's name followed by "via Discipler", for example "Riverside Chapel via Discipler: Did you meet with Jordan this week? Reply 1 for yes, 2 for no."</li>
+      <li>Messages come from phone numbers Discipler owns and shares across the ministries it serves. You always hear from the same number for the same ministry.</li>
+      <li>Messages may include a welcome message, an introduction to your leader or the people you will lead, meeting reminders, weekly check-ins, follow-up questions and program coordination. An administrator receives only the codes and test check-ins they ask for.</li>
+      <li>Message frequency varies. Leaders typically receive 3-5 messages per week during an active relationship (up to approximately 24 per month), and people being discipled receive far fewer. An administrator receives a code when they confirm their phone, and the messages of each test check-in they send themselves, at most 3 test check-ins a day.</li>
+      <li>Msg &amp; data rates may apply.</li>
+      <li>Consent to receive check-in texts is not a condition of any purchase. An administrator who signs a church up agrees to receive sign-in codes and test check-ins as part of signing up. Discipler's check-ins run by text, so the intake form asks for this consent. If you do not want texts, talk to your ministry about being discipled without Discipler.</li>
+      <li>Reply STOP at any time to stop all messages. Reply START to opt back in.</li>
+      <li>Reply HELP for help, or email <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a>.</li>
+      <li>Leaders can also reply PAUSE, RESUME or SWAP to manage a single relationship.</li>
+      <li>Carriers are not liable for delayed or undelivered messages.</li>
+    </ul>
+    <p class="body">Mobile phone numbers are never shared with third parties or affiliates for marketing or promotional purposes. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties, except the providers that deliver the text messages.</p>
   </div>
 
   <div class="section">
     <p class="section-num">05</p>
-    <h2 class="section-title">What we do not do</h2>
-    <ul class="items">
-      <li>We do not sell your data</li>
-      <li>We do not send spam</li>
-      <li>We do not share your information outside your church or ministry context except as needed to operate the platform</li>
-      <li>We do not share mobile numbers, SMS opt-in data, or messaging consent for marketing or promotional purposes</li>
-    </ul>
+    <h2 class="section-title">Who can see your information</h2>
+    <p class="body"><strong>Your ministry's administrators</strong> can see the information your ministry holds about you, including your phone number and email, your intake answers, your relationships, and check-in replies and concerns.</p>
+    <p class="body"><strong>The people in your discipleship relationship</strong> see your name. If you are being discipled, your leader can see your phone number only if you agreed to contact sharing on the intake form. Discipler never puts anyone's phone number in a text message.</p>
+    <p class="body"><strong>Discipler</strong> staff and contractors access information only when needed to run, support, secure or fix the service, or when the law requires it.</p>
+    <p class="body"><strong>Service providers</strong> process information for us only to provide the service, under contracts that limit their use of it:</p>
+    <div class="table-wrap"><table>
+      <tr><th>Provider</th><th>What it does</th><th>Where</th></tr>
+      <tr><td>Supabase</td><td>Database and sign-in</td><td>Canada</td></tr>
+      <tr><td>Vercel</td><td>Website and app hosting</td><td>United States</td></tr>
+      <tr><td>Twilio</td><td>Sending and receiving text messages, and texting codes to confirm a phone</td><td>United States</td></tr>
+      <tr><td>Stripe</td><td>Payments, subscriptions and invoices</td><td>United States</td></tr>
+      <tr><td>Resend</td><td>Sending email, such as codes, password reset links and account notices</td><td>United States</td></tr>
+      <tr><td>Cloudflare Turnstile</td><td>Checking that a person, not a program, is signing up or using the contact form</td><td>United States, and Cloudflare's global network</td></tr>
+      <tr><td>Vercel AI Gateway</td><td>Passing administrators' help-assistant questions to the AI model, with zero data retention</td><td>United States</td></tr>
+      <tr><td>Anthropic</td><td>The AI model behind the help assistant, with zero data retention</td><td>United States</td></tr>
+      <tr><td>Google Fonts</td><td>Font delivery for our public website</td><td>United States</td></tr>
+    </table></div>
+    <p class="body">We will keep this list current here. Ministries can email <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a> to be told about changes to it.</p>
+    <p class="body"><strong>For legal reasons.</strong> We may disclose information if we believe in good faith it is required by law or by a valid request from a court or government agency, or is necessary to protect the safety of any person, to investigate fraud or abuse of the service, or to protect the rights of Discipler, our users or the public. Where the law allows, we will tell the affected ministry before we do.</p>
+    <p class="body"><strong>If Discipler is sold or merged.</strong> If Discipler is involved in a merger, acquisition or sale of assets, information may be transferred as part of it. We will notify ministries before information is transferred and becomes subject to a different privacy policy.</p>
+    <p class="body">We never sell personal information, and we never share it for targeted advertising. We never give one ministry's information to another ministry, with one narrow exception. When a church signs up through another church's referral link and pays its first bill, the inviting church sees a one-month credit on its own billing page. That tells the inviting church that a church it invited has paid, but never which church, and nothing else about it.</p>
   </div>
 
   <div class="section">
     <p class="section-num">06</p>
-    <h2 class="section-title">Your control</h2>
-    <ul class="items">
-      <li>You can request to update or delete your information at any time</li>
-      <li>You can opt out of SMS messages at any time by replying STOP</li>
-      <li>You can contact your church or ministry administrator with questions about your mentorship program information</li>
-      <li>You can contact Discipler at support@trydiscipler.com with privacy questions</li>
-    </ul>
+    <h2 class="section-title">Where information is stored</h2>
+    <p class="body">Discipler's database is hosted in Canada. Our hosting, text-message, payment, email and AI providers process information in the United States, and Cloudflare Turnstile runs on Cloudflare's global network. By using Discipler, you understand that your information will be processed in Canada and the United States.</p>
   </div>
 
   <div class="section">
     <p class="section-num">07</p>
-    <h2 class="section-title">Data security</h2>
+    <h2 class="section-title">How long we keep information</h2>
+    <p class="body">We keep information for as long as your ministry uses Discipler, because your ministry's records of its relationships depend on it. Discipler keeps a dated history of what happened rather than overwriting it, so the record of a past week stays accurate.</p>
+    <p class="body">If your ministry removes you from its roster, Discipler stops sending you messages, takes you off every list, and deletes your sign-in account. Your past history stays in your ministry's records unless you ask for it to be deleted (see section 8).</p>
+    <p class="body">We keep consent records and opt-out (STOP) records for as long as we may need them to honor your choice and show that messages were sent with consent, even after other information is deleted.</p>
+    <p class="body">Some information is kept for a set time, whatever else happens:</p>
     <ul class="items">
-      <li>We use reasonable safeguards to protect information submitted through Discipler</li>
-      <li>No system can guarantee perfect security, but we work to protect information from unauthorized access, misuse, or disclosure</li>
+      <li>Messages sent through the contact, bug report or feature request form, and support emails, are kept for 12 months and then deleted.</li>
+      <li>Help assistant conversations are deleted 90 days after they are written.</li>
+      <li>Email codes stop working after 10 minutes, and are stored only in a form that cannot be turned back into the code.</li>
+      <li>A sign-up abandoned before the account was created is deleted after 30 days.</li>
+      <li>Billing records, such as invoices and payments, are kept for 7 years to meet tax and accounting obligations.</li>
+      <li>Each agreement to our terms is kept, with its version and time, for as long as the account exists and for 7 years afterwards.</li>
     </ul>
+    <p class="body">When a church's subscription ends, by cancelling or because payment could not be collected, its information is kept and its pages become read-only, so it can restart. If the church does not restart, we delete its information 12 months after the subscription ended, after emailing its administrators 30 days beforehand, except the records this section says are kept longer. Backups are overwritten on a rolling basis within 30 more days. A church that created an account but never completed Checkout and has no subscription is treated the same way, with the 12 months counted from the day it signed up.</p>
+    <p class="body">When a ministry stops using Discipler and asks to close its account, it can ask for a copy of its information within 30 days. We then delete the ministry's information within 90 days, except backups, which are overwritten on a rolling basis within 30 more days, and anything we must keep by law.</p>
+    <p class="body">Our service providers keep their own operational logs, such as text-message delivery records, for the periods set out in their policies.</p>
   </div>
 
   <div class="section">
-    <p class="section-num">Contact</p>
-    <h2 class="section-title">Questions?</h2>
-    <p class="body">Reach out directly with any questions about this policy or your data.</p>
-    <div class="contact-link">
-      <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a>
-    </div>
+    <p class="section-num">08</p>
+    <h2 class="section-title">Your choices and rights</h2>
+    <p class="body">You can ask to:</p>
+    <ul class="items">
+      <li>see the information Discipler holds about you</li>
+      <li>correct information that is wrong</li>
+      <li>delete your information</li>
+      <li>receive a copy of your information in a common format</li>
+      <li>withdraw a consent you gave, or object to a use of your information</li>
+    </ul>
+    <p class="body">To make a request, contact your ministry, or email us at <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a> with "Privacy request" in the subject line. Because your ministry controls most of your information, we will usually involve your ministry in answering, and we may pass your request to it.</p>
+    <p class="body">We will ask you to confirm your identity before acting, usually by confirming the phone number we hold for you. Someone you authorize may make a request for you if they show us your written permission. We will respond within 45 days, and tell you if we need more time.</p>
+    <p class="body">When we delete your information, we remove or de-identify your personal details. Counts and reports that do not identify you may remain in your ministry's records. We keep the minimum needed to honor a STOP request or to meet a legal obligation.</p>
+    <p class="body">You will not be treated differently for using any of these rights. If we decline a request, we will tell you why, and you can reply to ask us to reconsider. Depending on where you live, you may have additional rights under your state's or province's privacy laws, and we will honor them as those laws require.</p>
+    <p class="body">You can stop all text messages at any time by replying STOP.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">09</p>
+    <h2 class="section-title">Security</h2>
+    <p class="body">Each ministry's information is separated in the database itself, so a request made for one ministry cannot read or change another ministry's information. Information travels over encrypted connections, passwords are stored in hashed form, and access by Discipler staff is limited to what their work requires. Card and bank details never reach Discipler's servers, and the emails Discipler sends never carry the names, phone numbers or concerns of the people in a ministry's program. No system is perfectly secure, and we cannot guarantee that information will never be accessed without permission.</p>
+    <p class="body">If we learn of a security breach affecting your information, we will notify the affected ministries without undue delay, and notify affected people directly where the law requires it.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">10</p>
+    <h2 class="section-title">Children</h2>
+    <p class="body">Discipler is for adults. The intake form's age ranges start at 18, and ministries must not enroll anyone under 18. We do not knowingly collect information from anyone under 18. If you believe a child's information is in Discipler, contact the ministry or email <a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a>, and we will work with the ministry to delete it.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">11</p>
+    <h2 class="section-title">Tracking and Do Not Track</h2>
+    <p class="body">Because Discipler does not use tracking technologies, there is nothing for a Do Not Track or Global Privacy Control signal to turn off.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">12</p>
+    <h2 class="section-title">Links to other sites</h2>
+    <p class="body">Our website and app link to other sites, such as Calendly for booking a call, Zoom for office hours, and Stripe's billing pages for updating a payment method or cancelling. Those sites have their own privacy policies, and we are not responsible for how they handle information.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">13</p>
+    <h2 class="section-title">Changes to this policy</h2>
+    <p class="body">We may update this policy from time to time and will change the effective date at the top when we do. For a significant change, we will notify ministries by email at least 30 days before it takes effect. We will never use information already collected in a materially different way without the consent that change requires.</p>
+  </div>
+
+  <div class="section">
+    <p class="section-num">14</p>
+    <h2 class="section-title">Contact us</h2>
+    <p class="body">Questions, requests and complaints about this policy or your information:</p>
+    <p class="body">Discipler LLC<br>116 Beaver St., Carrollton, GA<br><a href="mailto:support@trydiscipler.com">support@trydiscipler.com</a></p>
   </div>
 
 </div>
