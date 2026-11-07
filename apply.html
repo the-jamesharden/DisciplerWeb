@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apply — Discipler Fall 2026 Pilot</title>
+<title>Start your free trial | Discipler</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -71,6 +71,14 @@ nav{
 .apply-title em{font-style:italic;color:var(--accent)}
 .apply-sub{font-size:1rem;line-height:1.8;color:var(--white-muted);max-width:540px;margin:0 auto;font-weight:300}
 
+/* ACTIONS */
+body{display:flex;flex-direction:column}
+.apply-hero{flex:1;display:flex;flex-direction:column;justify-content:center}
+.apply-actions{display:flex;justify-content:center;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:2.5rem}
+.btn-primary{font-size:0.78rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--forest);background:var(--accent-warm);padding:1rem 2.25rem;border:none;cursor:pointer;text-decoration:none;transition:all 0.25s;display:inline-block;border-radius:2px;white-space:nowrap}
+.btn-primary:hover{background:var(--white);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.btn-ghost{font-size:0.78rem;letter-spacing:0.06em;color:var(--white-muted);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s;border:0.5px solid var(--mist-border);padding:1rem 1.5rem;border-radius:2px;white-space:nowrap}
+.btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.3)}
 /* TRUST ROW */
 .trust-row{
   display:flex;justify-content:center;align-items:center;gap:3rem;
@@ -213,104 +221,14 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
 </nav>
 
 <section class="apply-hero">
-  <p class="apply-eyebrow fade-up fade-up-1">Fall 2026 Pilot Program</p>
-  <h1 class="apply-title fade-up fade-up-2">Apply to build discipleship <em>that actually works.</em></h1>
-  <p class="apply-sub fade-up fade-up-3">We're selecting a small cohort of churches and campus ministries to partner with us this fall. Spots are limited.</p>
+  <p class="apply-eyebrow fade-up fade-up-1">Get started</p>
+  <h1 class="apply-title fade-up fade-up-2">Start your<br><em>30-day free trial.</em></h1>
+  <p class="apply-sub fade-up fade-up-3">Set up your church or campus ministry in Discipler today. A card or US bank account starts the trial, and you can cancel anytime.</p>
+  <div class="apply-actions fade-up fade-up-3">
+    <a href="https://app.trydiscipler.com/signup" class="btn-primary">Start your 30-day free trial</a>
+    <a href="https://calendly.com/trydiscipler/30min" class="btn-ghost">Book a Demo</a>
+  </div>
 </section>
-
-
-
-<div class="apply-body">
-
-  <!-- LEFT SIDEBAR -->
-  <div class="apply-sidebar">
-    <p class="sidebar-label">Who this is for</p>
-    <h2 class="sidebar-headline">Ministries that want to disciple well — and <em>know they need a system to do it.</em></h2>
-    <p class="sidebar-body">Discipler is infrastructure for churches and campus ministries running — or wanting to run — a real mentorship program. If you're managing pairs over text messages, losing track of who's meeting with whom, or simply know your discipleship program isn't as healthy as it could be, this pilot is for you.</p>
-
-    <div class="what-you-get">
-      <p class="wyg-title">What pilot partners receive</p>
-      <div class="wyg-item"><div class="wyg-dot"></div><p class="wyg-text"><strong>Full platform access</strong> — pairing, SMS check-ins, admin dashboard, and reporting for your entire cohort.</p></div>
-      <div class="wyg-item"><div class="wyg-dot"></div><p class="wyg-text"><strong>White-glove onboarding</strong> — we set everything up with you, not just hand you a login.</p></div>
-
-    </div>
-
-    <div class="cohort-badge">
-      <div class="cohort-pulse"></div>
-      <span class="cohort-text">Fall 2026 cohort — limited spots remaining</span>
-    </div>
-  </div>
-
-  <!-- FORM CARD -->
-  <div class="form-card">
-    <h3 class="form-card-title">Apply now</h3>
-    <p class="form-card-sub">Takes about 2 minutes. We review every application personally.</p>
-
-    <div id="apply-form">
-      <div class="field-row">
-        <div class="field">
-          <label for="first-name">First name</label>
-          <input type="text" id="first-name" placeholder="James">
-        </div>
-        <div class="field">
-          <label for="last-name">Last name</label>
-          <input type="text" id="last-name" placeholder="Wilson">
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="pastor@yourchurch.com">
-      </div>
-
-      <div class="field">
-        <label for="ministry-name">Church / Ministry name</label>
-        <input type="text" id="ministry-name" placeholder="Your church or ministry">
-      </div>
-
-      <div class="field">
-        <label for="role">Your role</label>
-        <select id="role">
-          <option value="" disabled selected>Select your role</option>
-          <option>Senior Pastor</option>
-          <option>Associate Pastor</option>
-          <option>Discipleship Director</option>
-          <option>Campus Minister</option>
-          <option>Youth Pastor</option>
-          <option>Ministry Leader</option>
-          <option>Other</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="pairs">How many mentor-mentee pairs do you anticipate?</label>
-        <select id="pairs">
-          <option value="" disabled selected>Approximate number</option>
-          <option>Fewer than 10</option>
-          <option>10–25</option>
-          <option>25–50</option>
-          <option>50–100</option>
-          <option>100+</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="challenge">What's your biggest discipleship challenge right now?</label>
-        <textarea id="challenge" placeholder="We have the heart for it but no system to track who is meeting with whom..."></textarea>
-      </div>
-
-      <button class="submit-btn" id="submit-btn" type="button">Apply Now</button>
-      <p class="form-note">We'll follow up within 48 hours. No spam, ever.</p>
-    </div>
-
-    <div class="form-success" id="form-success">
-      <div class="success-icon">✦</div>
-      <p class="success-title">Application received.</p>
-      <p class="success-body">Thank you for reaching out. We review every application personally and will be in touch within 48 hours.<br><br>In the meantime, feel free to reach out directly at <span style="color:var(--accent)">contact@trydiscipler.com</span>.</p>
-    </div>
-  </div>
-
-</div>
 
 <footer>
   <div>
@@ -323,63 +241,9 @@ footer{position:relative;z-index:1;background:rgba(10,25,16,0.9);padding:4rem;di
     <li><a href="/privacy/">Privacy</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
-  <p class="footer-copy">&copy; 2026 Discipler LLC</p>
+  <p class="footer-copy">&copy; 2026 Discipler LLC &middot; For adults 18 and over.</p>
 </footer>
 
-<script>
-(function() {
-  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw-CSOqpWiKM4AO33-bFieOsvWKVoFrTRXDJy0vLr_aXIg-PO-7rcLGwvbybb6yQ53-Dg/exec';
 
-  var btn = document.getElementById('submit-btn');
-
-  btn.addEventListener('click', function() {
-    var firstName = document.getElementById('first-name').value.trim();
-    var lastName  = document.getElementById('last-name').value.trim();
-    var email     = document.getElementById('email').value.trim();
-    var ministry  = document.getElementById('ministry-name').value.trim();
-    var role      = document.getElementById('role').value;
-    var pairs     = document.getElementById('pairs').value;
-    var challenge = document.getElementById('challenge').value.trim();
-
-    if (!firstName || !email || !ministry || !role) {
-      alert('Please fill in your name, email, ministry name, and role.');
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = 'Submitting...';
-
-    var payload = [
-      new Date().toISOString(),
-      firstName + ' ' + lastName,
-      email,
-      ministry,
-      role,
-      pairs,
-      challenge,
-      'apply-page'
-    ].join('\t');
-
-    fetch(SHEET_ENDPOINT, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: payload
-    })
-    .then(function() {
-      document.getElementById('apply-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    })
-    .catch(function() {
-      // Even on network error, show success — Apps Script returns an opaque response
-      document.getElementById('apply-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    });
-  });
-})();
-</script>
 </body>
 </html>
