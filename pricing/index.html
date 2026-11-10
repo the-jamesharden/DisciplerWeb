@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Discipler</title>
+<link rel="preload" href="/bg-hero.jpg" as="image">
+<link rel="preload" href="/logo.png" as="image">
+<link rel="icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --forest:#1a3a2a;
+  --mist:rgba(255,255,255,0.08);
+  --mist-strong:rgba(255,255,255,0.13);
+  --mist-border:rgba(255,255,255,0.18);
+  --white:rgba(255,255,255,0.95);
+  --white-muted:rgba(255,255,255,0.72);
+  --white-faint:rgba(255,255,255,0.4);
+  --accent:#a8d5a2;
+  --accent-warm:#c8e6c4;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Inter',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--forest);color:var(--white);overflow-x:hidden;min-height:100vh;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-2;background:url("/bg-hero.jpg") center/cover no-repeat}
+body::after{content:'';position:fixed;inset:0;z-index:-1;background:rgba(15,40,25,0.62)}
+
+.glass{
+  background:var(--mist);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border:0.5px solid var(--mist-border);
+}
+.glass-strong{
+  background:var(--mist-strong);
+  backdrop-filter:blur(40px) saturate(1.4);
+  -webkit-backdrop-filter:blur(40px) saturate(1.4);
+  border:0.5px solid var(--mist-border);
+}
+
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4rem;height:72px;
+  background:rgba(20,45,30,0.6);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:0.5px solid var(--mist-border);
+}
+.nav-logo{text-decoration:none;display:flex;align-items:center}
+.nav-logo img{height:62px;width:auto;display:block;filter:brightness(0) invert(1)}
+.nav-links{display:flex;gap:clamp(1.25rem,2.2vw,2.5rem);list-style:none;margin:0 1.5rem}
+.nav-links a,.nav-login,.nav-cta{white-space:nowrap}
+.nav-links a{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--white)}
+.nav-actions{display:flex;align-items:center;gap:1rem}
+.nav-cta{font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);background:var(--accent-warm);padding:0.65rem 1.5rem;text-decoration:none;transition:all 0.2s;border-radius:2px}
+.nav-cta:hover{background:var(--white);transform:translateY(-1px)}
+.nav-login{font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);text-decoration:none;padding:0.6rem 1.25rem;border:0.5px solid var(--mist-border);border-radius:2px;transition:all 0.2s}
+.nav-login:hover{background:var(--mist-strong);border-color:var(--white-muted)}
+
+/* HEADER */
+main{max-width:1240px;margin:0 auto;padding:9rem 2rem 6rem}
+.head{text-align:center;max-width:44rem;margin:0 auto 2.25rem}
+.kicker{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.head h1{font-family:var(--font-display);font-size:clamp(2.4rem,4.8vw,3.75rem);font-weight:700;line-height:1.1;color:var(--white);margin-bottom:1.25rem;text-wrap:balance}
+.head p:last-child{font-size:1.1rem;line-height:1.7;font-weight:300;color:var(--white-muted)}
+
+/* MONTHLY OR YEARLY */
+.cycle{display:flex;width:fit-content;margin:0 auto 2.25rem;padding:4px;gap:4px;border-radius:999px}
+.cycle button{min-height:44px;padding:0 1.5rem;border:0;border-radius:999px;background:transparent;color:var(--white-muted);font:500 0.9rem/1 var(--font-body);cursor:pointer;transition:all 0.2s}
+.cycle button:hover{color:var(--white)}
+.cycle button span{margin-left:0.35rem;font-size:0.76rem;font-weight:600;color:var(--accent)}
+.cycle button[aria-pressed="true"],.cycle button[aria-pressed="true"]:hover{background:var(--accent-warm);color:var(--forest)}
+.cycle button[aria-pressed="true"] span{color:var(--forest)}
+
+/* PLANS */
+.plans{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem}
+.plan{display:flex;flex-direction:column;min-width:0;padding:1.75rem 1.5rem;border-radius:16px}
+.plan h2{font-family:var(--font-display);font-size:1.3rem;font-weight:700;line-height:1.25;color:var(--white);margin-bottom:1.1rem;padding-bottom:1rem;border-bottom:0.5px solid var(--mist-border)}
+.plan>div{flex:1 1 auto}
+.price{font-family:var(--font-display);font-size:2.6rem;font-weight:700;line-height:1;color:var(--accent);margin-bottom:0.75rem}
+.price span{display:block;margin-top:0.5rem;font-family:var(--font-body);font-size:0.85rem;font-weight:400;color:var(--white-muted)}
+.price-words{font-size:2.1rem;line-height:1.238}
+.for-year .price{font-size:2.25rem;margin-bottom:0.6rem}
+.price-was{display:flex;flex-wrap:wrap;gap:0.1rem 0.75rem;margin-bottom:0.5rem;font-size:1rem;color:var(--white-muted);font-variant-numeric:tabular-nums}
+.price-was s{text-decoration-thickness:1.5px}
+.expo{display:inline-block;margin-bottom:0.75rem;padding:0.25rem 0.6rem;border-radius:20px;border:0.5px solid rgba(168,213,162,0.3);background:rgba(168,213,162,0.15);color:var(--accent);font-size:0.68rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase}
+.note{font-size:0.85rem;line-height:1.55;color:var(--white-muted);margin-bottom:1.4rem}
+.plan-call .note{flex:1 1 auto}
+.plans[data-showing="month"] .for-year,.plans[data-showing="year"] .for-month{display:none}
+
+.btn-primary,.btn-outline{
+  display:flex;align-items:center;justify-content:center;width:100%;min-height:4rem;margin-top:auto;padding:0.85rem 0.75rem;text-wrap:balance;
+  font-size:0.74rem;font-weight:500;letter-spacing:0.07em;line-height:1.35;text-align:center;text-transform:uppercase;text-decoration:none;
+  border-radius:2px;transition:all 0.25s;
+}
+.nb{white-space:nowrap}
+.btn-primary{color:var(--forest);background:var(--accent-warm)}
+.btn-primary:hover{background:var(--white);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.btn-outline{color:var(--white);border:0.5px solid var(--white-muted)}
+.btn-outline:hover{background:var(--mist-strong);border-color:var(--white);transform:translateY(-2px)}
+
+.who{text-align:center;font-weight:500;max-width:46rem;margin:2.25rem auto 0.5rem;line-height:1.6;color:var(--white)}
+.founder{text-align:center;color:var(--white-muted);font-size:0.95rem;line-height:1.6}
+
+/* FAQ */
+.faq{max-width:48rem;margin:4.5rem auto 0}
+.faq h2{font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.4rem);font-weight:700;line-height:1.2;color:var(--white);text-align:center;margin-bottom:1.75rem}
+.faq details{border-radius:12px;padding:0 1.35rem;margin-bottom:0.65rem}
+.faq summary{min-height:56px;padding:0.75rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-weight:500;line-height:1.4;color:var(--white);cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';flex:none;font-size:1.4rem;font-weight:300;line-height:1;color:var(--accent)}
+.faq details[open] summary::after{content:'−'}
+.faq p{margin-bottom:0.9rem;font-size:0.95rem;font-weight:300;line-height:1.7;color:var(--white-muted)}
+
+/* FOOTER */
+footer{background:rgba(10,25,16,0.9);padding:4rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--mist-border)}
+.footer-logo img{height:32px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.7}
+.footer-tagline{font-size:0.72rem;color:var(--white-faint);margin-top:0.4rem;letter-spacing:0.06em}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{font-size:0.72rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--white-faint);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.2)}
+
+.fade-up{animation:fadeUp 0.9s ease forwards;opacity:0}
+.fade-up-1{animation-delay:0.05s}.fade-up-2{animation-delay:0.12s}.fade-up-3{animation-delay:0.2s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.fade-up{animation:none;opacity:1}}
+
+@media(max-width:1200px){
+  nav{padding:0 2rem}
+  .nav-links{display:none}
+  .plans{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  nav{padding:0 1.25rem}
+  .nav-logo img{height:48px}
+  .nav-actions{gap:0.5rem}
+  .nav-login,.nav-cta{padding:0.55rem 0.9rem;font-size:0.68rem}
+  main{padding:7.5rem 1.25rem 4.5rem}
+  footer{flex-direction:column;gap:2rem;text-align:center;padding:3rem 2rem}
+  .footer-links{justify-content:center;flex-wrap:wrap}
+}
+@media(max-width:620px){
+  .plans{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:400px){
+  .nav-login{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="glass">
+  <a href="/" class="nav-logo"><img src="/logo.png" alt="Discipler"></a>
+  <ul class="nav-links">
+    <li><a href="/#problems">The Problem</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#heart">Our Heart</a></li>
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/pricing/" aria-current="page">Pricing</a></li>
+    <li><a href="/blog/paul-article.html">Blog</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="https://app.trydiscipler.com" class="nav-login">Log in</a>
+    <a href="https://app.trydiscipler.com/signup" class="nav-cta">Start your free trial</a>
+  </div>
+</nav>
+
+<main>
+  <header class="head">
+    <p class="kicker fade-up fade-up-1">Pricing</p>
+    <h1 class="fade-up fade-up-2">One plan, priced by your size</h1>
+    <p class="fade-up fade-up-3">Every feature is in every size. The only difference between the prices is how many people are in active pairings and groups. Your first <span data-trial-days>30</span> days are free.</p>
+  </header>
+
+  <div class="cycle glass" role="group" aria-label="How often to pay">
+    <button type="button" data-cycle="month" aria-pressed="true">Monthly</button>
+    <button type="button" data-cycle="year" aria-pressed="false">Yearly <span>20% off</span></button>
+  </div>
+
+  <div class="plans" data-showing="month">
+    <article class="plan glass-strong">
+      <h2>Up to 200 people</h2>
+      <div class="for-month">
+        <p class="price">$97<span>a month</span></p>
+        <p class="note">Billed each month after your 30 free days.</p>
+      </div>
+      <div class="for-year">
+        <p class="price-was"><s aria-label="Twelve monthly payments, $1,164">$1,164</s><s aria-label="Yearly price, $931.20">$931.20</s></p>
+        <p class="price">$744.96<span>for your first year</span></p>
+        <p class="expo">Expo 2026</p>
+        <p class="note">Billed once a year after your 60 free days. Renews at $931.20 a year.</p>
+      </div>
+      <a class="btn-primary" href="https://app.trydiscipler.com/signup?size=200&amp;cycle=month" data-size="200"><span>Start your <span class="nb"><span data-trial-days>30</span>-day</span> free trial</span></a>
+    </article>
+
+    <article class="plan glass-strong">
+      <h2>Up to 500 people</h2>
+      <div class="for-month">
+        <p class="price">$147<span>a month</span></p>
+        <p class="note">Billed each month after your 30 free days.</p>
+      </div>
+      <div class="for-year">
+        <p class="price-was"><s aria-label="Twelve monthly payments, $1,764">$1,764</s><s aria-label="Yearly price, $1,411.20">$1,411.20</s></p>
+        <p class="price">$1,128.96<span>for your first year</span></p>
+        <p class="expo">Expo 2026</p>
+        <p class="note">Billed once a year after your 60 free days. Renews at $1,411.20 a year.</p>
+      </div>
+      <a class="btn-primary" href="https://app.trydiscipler.com/signup?size=500&amp;cycle=month" data-size="500"><span>Start your <span class="nb"><span data-trial-days>30</span>-day</span> free trial</span></a>
+    </article>
+
+    <article class="plan glass-strong">
+      <h2>Up to 1,000 people</h2>
+      <div class="for-month">
+        <p class="price">$247<span>a month</span></p>
+        <p class="note">Billed each month after your 30 free days.</p>
+      </div>
+      <div class="for-year">
+        <p class="price-was"><s aria-label="Twelve monthly payments, $2,964">$2,964</s><s aria-label="Yearly price, $2,371.20">$2,371.20</s></p>
+        <p class="price">$1,896.96<span>for your first year</span></p>
+        <p class="expo">Expo 2026</p>
+        <p class="note">Billed once a year after your 60 free days. Renews at $2,371.20 a year.</p>
+      </div>
+      <a class="btn-primary" href="https://app.trydiscipler.com/signup?size=1000&amp;cycle=month" data-size="1000"><span>Start your <span class="nb"><span data-trial-days>30</span>-day</span> free trial</span></a>
+    </article>
+
+    <article class="plan plan-call glass-strong">
+      <h2>Over 1,000 people</h2>
+      <p class="price price-words">Let’s talk<span>about a price for your church</span></p>
+      <p class="note">Book a call and we will work out a price for your church together.</p>
+      <a class="btn-outline" href="https://calendly.com/trydiscipler/30min">Book a Call</a>
+    </article>
+  </div>
+
+  <p class="who">You pay for people in an active pairing or group, mentors and mentees together. Everyone still waiting on your Roster is free.</p>
+  <p class="founder">Every size comes with direct access to the founder, and replies within 24 hours.</p>
+
+  <section class="faq">
+    <h2>Questions about pricing</h2>
+    <details class="glass" open>
+      <summary>What happens if I go over my limit?</summary>
+      <p>Don’t worry, nothing bad happens. We’ll let you know and give you two weeks to move up a size. If you haven’t by then, we’ll send one last reminder and give you a call. We never turn off a church’s mentorship for going over a limit.</p>
+      <p>Growing past your size does not change your price by itself.</p>
+    </details>
+    <details class="glass">
+      <summary>Who counts toward my size?</summary>
+      <p>You pay for people in an active pairing or group, mentors and mentees together. Everyone still waiting on your Roster is free.</p>
+      <p>Each person counts once, however many pairings they are in. A pairing only counts once it has been accepted, and not while it is paused.</p>
+    </details>
+    <details class="glass">
+      <summary>What do I need to start the free trial?</summary>
+      <p>A card or a US bank account, added through Stripe when you sign up. Nothing is charged until your 30 free days end.</p>
+    </details>
+    <details class="glass">
+      <summary>When is my card charged?</summary>
+      <p>Your first charge comes when your 30 free days end, for the size and billing you chose. After that, you are charged each month or each year until you cancel.</p>
+      <p>Prices do not include any sales or similar tax that applies.</p>
+    </details>
+    <details class="glass">
+      <summary>Will you remind me before my trial ends?</summary>
+      <p>Yes. We email you 7 days before your trial ends, before anything is charged. If you cancel before it ends, you are never charged.</p>
+    </details>
+    <details class="glass">
+      <summary>How do I cancel?</summary>
+      <p>Any Admin can cancel from Billing, at any time. If you cancel during your free trial, you are never charged. If you cancel later, Discipler keeps running until the end of the month or year you have already paid for.</p>
+      <p>After that, check-ins stop and your pages turn read-only. Your information is kept for 12 months, so you can restart from the same account at the normal price, with no second trial.</p>
+    </details>
+    <details class="glass">
+      <summary>Are there refunds?</summary>
+      <p>No. Cancelling does not refund any part of a month or year you have already paid for, unless the law requires it.</p>
+      <p>That is why the first 30 days are free: you can try Discipler with your people before you pay anything.</p>
+    </details>
+    <details class="glass">
+      <summary>What if we have more than 1,000 people?</summary>
+      <p>Book a call with James, and we will work out a price for your church together.</p>
+      <p>If you are on Up to 1,000 and grow past it, nothing stops and your price does not change by itself. We will reach out to book a call.</p>
+    </details>
+    <details class="glass">
+      <summary>Is there an offer for church plants?</summary>
+      <p>Yes. A church that launched in the last 3 years, or is launching in the next 12 months, can apply for 12 months free, which begins after its 30-day free trial. Answer Yes to “Is your church a church plant?” when you sign up.</p>
+      <p>Your trial starts straight away, and we email you when your plant is approved. We decide each application ourselves, and the free year ends if your subscription ends.</p>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div>
+    <a href="/" class="footer-logo"><img src="/logo.png" alt="Discipler"></a>
+    <p class="footer-tagline">Mentorship infrastructure for growing ministries</p>
+  </div>
+  <ul class="footer-links">
+    <li><a href="/#heart">About</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/pricing/">Pricing</a></li>
+    <li><a href="/blog/paul-article.html">Blog</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/terms/">Terms</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2026 Discipler LLC &middot; For adults 18 and over.</p>
+</footer>
+
+<script>
+(function () {
+  var plans = document.querySelector('.plans');
+  var buttons = document.querySelectorAll('.cycle [data-cycle]');
+  var signUps = document.querySelectorAll('a[data-size]');
+  var trialDays = document.querySelectorAll('[data-trial-days]');
+
+  function show(cycle) {
+    plans.dataset.showing = cycle;
+    buttons.forEach(function (button) {
+      button.setAttribute('aria-pressed', String(button.dataset.cycle === cycle));
+    });
+    trialDays.forEach(function (days) {
+      days.textContent = cycle === 'year' ? '60' : '30';
+    });
+    signUps.forEach(function (link) {
+      link.href = 'https://app.trydiscipler.com/signup?size=' + link.dataset.size + '&cycle=' + cycle + (cycle === 'year' ? '&code=EXPO26' : '');
+    });
+  }
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () { show(button.dataset.cycle); });
+  });
+})();
+</script>
+</body>
+</html>
